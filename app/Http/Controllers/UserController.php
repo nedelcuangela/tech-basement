@@ -3,8 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use App\Models\Permission;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class UserController extends Controller
 {
@@ -21,30 +28,38 @@ class UserController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
     public function index(Request $request)
     {
-//        if (auth()->check() && !auth()->user()->hasRole('admin'))
-//        {
-//            return redirect('/');
-//        }
-
         $users = User::all();
 
         return view('users.index', compact('users'));
     }
 
-    public function create() {
-        $users = new User();
+    /**
+     * @return Application|Factory|View
+     */
+    public function create()
+    {
 
-        return view('users.create', compact('users'));
+        return view('users.create');
     }
 
-    public function store(User $user) {
-        $user = User::create($this->validateRequest());
+    /**
+     * @return Application|RedirectResponse|Redirector
+     */
+    public function store() {
 
-        return redirect('users');
+        $data = $this->validateRequest();
+
+        $user = User::query()->create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password']
+        ]);
+
+        return redirect()->route('users.store');
     }
 
     public function show(\App\Models\User $user) {
@@ -60,11 +75,14 @@ class UserController extends Controller
 
     public function update(User $user, Request $request) {
         $user->update($this->validateRequest());
-//        $role->role_id = $request->role;
-//        $role->save();
+        $user->role_id = $request->role;
+        $user->save();
+
+        return redirect('/users');
     }
 
-    public function destroy(User $user) {
+    public function destroy(User $user)
+    {
         $user->delete();
 
         return redirect('users');

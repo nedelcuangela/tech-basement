@@ -24,4 +24,11 @@ Route::view('/', 'home');
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{user:id}/edit', [UserController::class, 'edit']);
 Route::patch('/users/{user:id}/update', [UserController::class, 'update'])->name('users.update');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users/create', [UserController::class, 'store'])->name('users.store');
+Route::delete('/users/{user:id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+//Route::resource('users.destroy', UserController::class);
+
+
 

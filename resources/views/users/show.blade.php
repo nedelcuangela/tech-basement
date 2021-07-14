@@ -1,10 +1,14 @@
 @extends('layouts.app')
+
+@foreach($users as $user)
+@section('title', 'Details for '.$user->name)
+
 @section('content')
 
     <div class="container">
-        <div class="row justify-content-center mb-5">
-            @foreach($users as $user)
-                <div class="card card_users">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
                     <div class="card-header">Details for {{ $user->name }}</div>
 
                     @if(session('success'))
@@ -13,7 +17,7 @@
                         </div>
                     @endif
                     <div class="card-body">
-                        <form method="POST" action="{{ route('users.destroy', $user->id) }}">
+                        <form action="/users/{{ $user->id }}" method="POST">
                             @method('DELETE')
                             @csrf
                             <div class="row">
@@ -25,12 +29,12 @@
                             <hr>
                             <button class="btn btn-danger" type="submit">Delete</button>
                             <a class="btn btn-primary" href="/users/{{ $user->id }}/edit">Edit</a>
+
                         </form>
                     </div>
                 </div>
-            @endforeach
+            </div>
         </div>
     </div>
+@endforeach
 @endsection
-
-

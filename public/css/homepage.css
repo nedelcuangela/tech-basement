@@ -30,6 +30,9 @@ header#header{
     color: #75B61A;
 }
 
+.card_users {
+    margin: 10px;
+}
 
 .head-text {
     text-align: left;
