@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 
 
@@ -21,14 +22,16 @@ Auth::routes();
 
 Route::view('/', 'home');
 
-Route::get('/users', [UserController::class, 'index']);
-Route::get('/users/{user:id}/edit', [UserController::class, 'edit']);
-Route::patch('/users/{user:id}/update', [UserController::class, 'update'])->name('users.update');
-Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-Route::post('/users/create', [UserController::class, 'store'])->name('users.store');
-Route::delete('/users/{user:id}', [UserController::class, 'destroy'])->name('users.destroy');
+//Route::get('/users', [UserController::class, 'index']);
+//Route::get('/users/{user:id}/edit', [UserController::class, 'edit']);
+//Route::patch('/users/{user:id}/update', [UserController::class, 'update'])->name('users.update');
+//Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+//Route::post('/users/create', [UserController::class, 'store'])->name('users.store');
+//Route::delete('/users/{user:id}', [UserController::class, 'destroy'])->name('users.destroy');
 
-//Route::resource('users.destroy', UserController::class);
+Route::resource('users', UserController::class);
+Route::resource('products', ProductController::class);
+
 
 
 
