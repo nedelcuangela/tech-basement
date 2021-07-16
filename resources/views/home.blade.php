@@ -18,38 +18,16 @@
     <section id="shiping">
         <div class="container">
             <div class="row">
+                @foreach($products as $product)
                 <div class="col-md-3">
                     <div class="shipping-box">
                         <div class="box-title">
-                            <h3>CATEGORY 1</h3>
-                            <p>EXCERPT 2</p>
+                            <h3>{{ $product->category }}</h3>
+                            <p>Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum massa, sit amet tristique sem. </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="shipping-box">
-                        <div class="box-title">
-                            <h3>CATEGORY 2</h3>
-                            <p>EXCERPT 3</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="shipping-box">
-                        <div class="box-title">
-                            <h3>CATEGORY 3</h3>
-                            <p>EXCERPT 4</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="shipping-box">
-                        <div class="box-title">
-                            <h3>CATEGORY 4</h3>
-                            <p>EXCERPT 5</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -62,55 +40,24 @@
                         <h1>Best Selling Products</h1>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="products">
-                            <div class="product-img"><img src="https://static.quickmobile.ro/cs-photos/products/original/iphone-12-pro-max-dual-sim-fizic-128gb-5g-albastru_10070318_3_1602678122.jpg" alt="" /></div>
-                            <div class="product-desc">
-                                <div class="product-name"><a href="#"><h4>iPhone 12 PRO</h4></a></div>
-                                <div class="product-rating"><img src="https://multifix24.es/wp-content/uploads/2019/03/multifix24-5-estrellas.png" alt="" /></div>
-                                <div class="product-price">
-                                    <h5>3000 lei</h5>
+
+                <div class="row col-6">
+                    @foreach($products as $product)
+                        <div class="col-sm-4">
+                            <div class="card mt-2">
+                                <img src="{{ asset('storage/'. $product->image) }}"  alt="">
+                                <div class="card-body">
+                                    <p class="product-title">{{ $product->name }}</p>
+                                    <p class="poduct-price"><strong>{{ "Price: ".$product->price." lei" }}</strong></p>
+                                    <div id="outer">
+                                        <div class="inner pb-2"><a href="{{ route('product.show', $product->id) }}" class="btn btn-primary">View</a></div>
+                                        <div id="result" class="inner"><a onclick="postProducts({{ $product->id }})" class="btn btn-success" data-dismiss="alert">Add to cart</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="products">
-                            <div class="product-img"><img src="https://static.quickmobile.ro/cs-photos/products/original/iphone-12-pro-max-dual-sim-fizic-128gb-5g-albastru_10070318_3_1602678122.jpg" alt="" /></div>
-                            <div class="product-desc">
-                                <div class="product-name"><a href="#"><h4>iPhone 12 PRO</h4></a></div>
-                                <div class="product-rating"><img src="https://multifix24.es/wp-content/uploads/2019/03/multifix24-5-estrellas.png" alt="" /></div>
-                                <div class="product-price">
-                                    <h5>3000 lei</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="products">
-                            <div class="product-img"><img src="https://static.quickmobile.ro/cs-photos/products/original/iphone-12-pro-max-dual-sim-fizic-128gb-5g-albastru_10070318_3_1602678122.jpg" alt="" /></div>
-                            <div class="product-desc">
-                                <div class="product-name"><a href="#"><h4>iPhone 12 PRO</h4></a></div>
-                                <div class="product-rating"><img src="https://multifix24.es/wp-content/uploads/2019/03/multifix24-5-estrellas.png" alt="" /></div>
-                                <div class="product-price">
-                                    <h5>3000 lei</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="products">
-                            <div class="product-img"><img src="https://static.quickmobile.ro/cs-photos/products/original/iphone-12-pro-max-dual-sim-fizic-128gb-5g-albastru_10070318_3_1602678122.jpg" alt="" /></div>
-                            <div class="product-desc">
-                                <div class="product-name"><a href="#"><h4>iPhone 12 PRO</h4></a></div>
-                                <div class="product-rating"><img src="https://multifix24.es/wp-content/uploads/2019/03/multifix24-5-estrellas.png" alt="" /></div>
-                                <div class="product-price">
-                                    <h5>3000 lei</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

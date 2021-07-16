@@ -16,19 +16,17 @@ use Illuminate\Routing\Redirector;
 class UserController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * UserController constructor.
      */
     public function __construct()
     {
+        $this->middleware('role');
         $this->middleware('auth');
     }
 
     /**
-     * Show the application dashboard.
-     *
-     * @return Renderable
+     * @param Request $request
+     * @return Application|Factory|View
      */
     public function index(Request $request)
     {
@@ -42,15 +40,14 @@ class UserController extends Controller
      */
     public function create()
     {
-
         return view('users.create');
     }
 
     /**
      * @return Application|RedirectResponse|Redirector
      */
-    public function store() {
-
+    public function store()
+    {
         $data = $this->validateRequest();
 
         $user = User::query()->create([
@@ -62,18 +59,34 @@ class UserController extends Controller
         return redirect()->route('users.store');
     }
 
-    public function show(\App\Models\User $user) {
+    /**
+     * @param User $user
+     * @return Application|Factory|View
+     */
+    public function show(\App\Models\User $user)
+    {
         return view('users.show', compact('user'));
     }
 
-    public function edit(User $user) {
+    /**
+     * @param User $user
+     * @return Application|Factory|View
+     */
+    public function edit(User $user)
+    {
         $roles = Role::all();
         $user = $user->load('role');
 
         return view('users.edit', compact('user', 'roles'));
     }
 
-    public function update(User $user, Request $request) {
+    /**
+     * @param User $user
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
+     */
+    public function update(User $user, Request $request)
+    {
         $user->update($this->validateRequest());
         $user->role_id = $request->role;
         $user->save();
@@ -81,6 +94,10 @@ class UserController extends Controller
         return redirect('/users');
     }
 
+    /**
+     * @param User $user
+     * @return Application|RedirectResponse|Redirector
+     */
     public function destroy(User $user)
     {
         $user->delete();

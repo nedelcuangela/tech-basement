@@ -71,8 +71,30 @@ section#shiping {
     margin-left: 20px;
 }
 
+.col-3.align-items-center.align-self-center.product-edit {
+    display: block;
+    margin: 0 auto;
+}
+
+.col-6.edit-title {
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+}
+
 .box-title h3 {
     font-size: 23px;
+}
+
+.products-container {
+    margin-bottom: 6em;
+    margin-right: 50em;
+    margin-left: 50em;
+    margin-top: 6em;
+}
+.btn-add-product {
+    display: flex;
+    width: auto;
 }
 
 .box-icon i {
