@@ -1,10 +1,32 @@
-
+.content-page {
+    position: relative;
+    min-height: 100vh;
+}
+.page-top {
+    padding-bottom: 2.5rem;
+}
+.page-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+img.shopping-cart-icon {
+    margin-top: 6px;
+    height: 27px;
+    display: flex;
+}
 a{
     color: #75b61ac2;
 }
 a:hover{
     color: #75B61A;
     text-decoration: none;
+}
+
+.checkout-form {
+    margin-left: 22em;
+    margin-right: 40em;
 }
 section {
     padding: 100px 0px;

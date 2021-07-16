@@ -18,7 +18,6 @@ use App\Http\Controllers\RoleController;
 |
 */
 
-Auth::routes();
 
 Route::view('/', 'home');
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
@@ -43,6 +42,68 @@ Route::get('/products/{product:id}/edit', [ProductController::class, 'edit'])->n
 Route::patch('/products/{product:id}/update', [ProductController::class, 'update'])->name('products.update');
 
 
+Route::get('/shopping-cart', [ProductController::class, 'getCart'])->name('shop.shopping-cart');
+Route::post('/add-to-shop/{id}', [ProductController::class, 'getAddToCart'])->name('product.AddToCart');
+
+
+Route::resource('permissions', 'PermissionController');
+
+Route::post('/shopping-cart/products', [
+    'as' => 'shop.checkout',
+    'uses' => 'OrderController@checkout',
+]);
+
+Route::get('/statistics', 'OrderController@chart')->name('shop.statistics');
+
+Route::get('/customer/print-pdf/{order}', 'UserController@printPDF')->name('customer.printpdf');
+Route::get('/orders','OrderController@index')->name('shop.orders');
+Route::get('/orders/{order}','OrderController@showOrder')->name('shop.order');
+Route::get('/orderHistory','OrderController@orderHistory')->name('shop.orderHistory');
+Route::post('/placeOrder', 'OrderController@placeOrder')->name('shop.placeOrder');
+
+
+//Route::post('/orders/{order}/update', 'OrderController@orderUpdate')->name('shop.order');
+
+
+Route::get('/manageOrders', 'OrderController@editManageOrders')->name('shop.manage');
+
+
+
+Route::get('/reduce/{id}', [
+
+    'uses' => 'ProductController@getReduceByOne',
+    'as' => 'shop.reduceByOne'
+]);
+
+Route::get('/delete/{id}', [
+
+    'uses' => 'ProductController@removeItem',
+    'as' => 'shop.removeItem'
+]);
+
+
+Auth::routes(['verify' => true]);
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'role'], function () {
+    Route::get('/create', [
+        'as' => 'role.create',
+        'uses' => 'RoleController@create',
+    ]);
+
+    Route::post('/create', [
+        'as' => 'role.store',
+        'uses' => 'RoleController@store',
+    ]);
+
+    Route::get('role', [
+        'as' => 'role.index',
+        'uses' => 'RoleController@index'
+    ]);
+});
+
+Auth::routes();
 
 
 

@@ -18,7 +18,7 @@
     <section id="shiping">
         <div class="container">
             <div class="row">
-                @foreach($products as $product)
+                @foreach($products->unique('category') as $product)
                 <div class="col-md-3">
                     <div class="shipping-box">
                         <div class="box-title">
@@ -40,8 +40,7 @@
                         <h1>Best Selling Products</h1>
                     </div>
                 </div>
-
-                <div class="row col-6">
+                <div class="row col-12">
                     @foreach($products as $product)
                         <div class="col-sm-4">
                             <div class="card mt-2">

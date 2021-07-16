@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Cart;
-use App\Product;
+use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;
+
 
 /**
  * Class ProductController
@@ -22,7 +23,6 @@ class ProductController extends Controller
     {
         $this->middleware('auth');
     }
-
 
     /**
      * @return Application|Factory|View
@@ -82,7 +82,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = \App\Models\Product::all();
+        $products = Product::all();
 
         if (request()->sort == 'low_high') {
             $products = $products->sortBy('price');
@@ -105,7 +105,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $products = new \App\Models\Product();
+        $products = new Product();
 
         return view('products.create', compact('products'));
     }
@@ -116,7 +116,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = \App\Models\Product::create($this->validateRequest());
+        $product = Product::create($this->validateRequest());
         $this->storeImage($product);
 
         return redirect('products');
@@ -138,7 +138,7 @@ class ProductController extends Controller
      * @param Product $product
      * @return Factory|\Illuminate\View\View
      */
-    public function show(\App\Models\Product $product)
+    public function show(Product $product)
     {
         return view('products.show', compact('product'));
     }
@@ -147,7 +147,7 @@ class ProductController extends Controller
      * @param Product $product
      * @return Factory|\Illuminate\View\View
      */
-    public function edit(\App\Models\Product $product)
+    public function edit(Product $product)
     {
         return view('products.edit', compact('product'));
     }
@@ -156,7 +156,7 @@ class ProductController extends Controller
      * @param Product $product
      * @return RedirectResponse|Redirector
      */
-    public function update(\App\Models\Product $product)
+    public function update(Product $product)
     {
         $this->storeImage($product);
         $product->update($this->validateRequest());
