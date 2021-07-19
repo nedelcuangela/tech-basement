@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\OrderStatus;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
@@ -36,15 +37,15 @@ class OrderController extends Controller
         return view('shop.statistics', compact('labels', 'data'));
     }
 
-    public function editManageOrders()
+    public function manageOrder()
     {
         $orders = Order::where('status', 'Pending')->latest()->get();
 
-        return view('shop.manageOrders', compact('orders', 'products', 'shop'));
+        return view('shop.manageOrders', compact('orders'));
     }
 
     public function orderUpdate( Order $order, Request $request) {
-        $customer = \App\Models\User::find($order->id_client);
+        $customer = User::find($order->id_client);
         $order->status=$request->status;
         $order->save();
         Mail::to($request->user())->send(new OrderStatus($order, $customer));

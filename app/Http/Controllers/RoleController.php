@@ -70,12 +70,12 @@ class RoleController extends Controller
     public function index()
     {
 
-        if(auth()->check() && !auth()->user()->hasRole('admin'))
-        {
-            return redirect('/');
-        }
+//        if(auth()->check() && !auth()->user()->hasRole('admin'))
+//        {
+//            return redirect('/');
+//        }
 
-        $roles = Role::all();
+        $roles = \App\Models\Role::all();
 
         return view('roles.index', compact('roles'));
     }

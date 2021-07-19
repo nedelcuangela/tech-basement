@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Permission;
+use App\Models\Permission;
 use App\Role;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -23,7 +23,7 @@ class PermissionController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('role');
+//        $this->middleware('role');
     }
 
     /**

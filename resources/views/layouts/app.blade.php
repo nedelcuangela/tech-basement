@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     </head>
     <body>
         <div class="content-page">
@@ -24,6 +25,7 @@
                                 <span class="navbar-toggler-icon"></span>
                             </button>
 
+
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item active">
@@ -33,10 +35,10 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="/products">Products</a>
                                     </li>
-                                    @if(Auth::user()->role_id == 1)
+{{--                                    @if(Auth::user()->role_id == 1)--}}
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/manageOrders">Manage Pending Orders</a>
+                                            <a class="nav-link" href="/manage-orders">Manage Pending Orders</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="/users">User List</a>
@@ -50,7 +52,8 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="/orders">Manage Orders</a>
                                         </li>
-                                    @endif
+
+{{--                                    @endif--}}
                                 </ul>
                             </div>
                         </div>
@@ -63,10 +66,7 @@
                             <!-- Right Side Of Navbar -->
                             <ul class="navbar-nav ml-auto">
                                 <!-- Authentication Links -->
-                                <a href="/shopping-cart">
-                                    <img class="shopping-cart-icon"
-                                         src="https://img.icons8.com/material-rounded/24/000000/shopping-cart.png"/>
-                                </a>
+
                                 @guest
                                     @if (Route::has('login'))
                                         <li class="nav-item">
@@ -80,6 +80,11 @@
                                         </li>
                                     @endif
                                 @else
+                                    <div class="shopping-cart-center">
+                                        <li>
+                                            <a href="/shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a> <span class="badge badge-primary">{{ Session::has('cart') ? Session::get('cart')->totalQty: '' }}</span>
+                                        </li>
+                                    </div>
                                     <li class="nav-item dropdown">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

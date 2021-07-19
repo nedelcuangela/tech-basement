@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -29,24 +30,20 @@ Route::patch('/users/{user:id}/update', [UserController::class, 'update'])->name
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
 Route::post('/users/create', [UserController::class, 'store'])->name('users.store');
 Route::delete('/users/{user:id}', [UserController::class, 'destroy'])->name('users.destroy');
-
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-
-
-
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-
+Route::get('/manage-orders', [OrderController::class, 'manageOrder'])->name('shop.manage');
+Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
 Route::post('/products/create', [ProductController::class, 'store'])->name('products.store');
 Route::get('/products/{product:id}/show', [ProductController::class, 'show'])->name('product.show');
 Route::get('/products/{product:id}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::patch('/products/{product:id}/update', [ProductController::class, 'update'])->name('products.update');
-
-
 Route::get('/shopping-cart', [ProductController::class, 'getCart'])->name('shop.shopping-cart');
 Route::post('/add-to-shop/{id}', [ProductController::class, 'getAddToCart'])->name('product.AddToCart');
+Route::get('/permissions', [\App\Http\Controllers\PermissionController::class, 'index'])->name('permissions.index');
 
 
-Route::resource('permissions', 'PermissionController');
+
 
 Route::post('/shopping-cart/products', [
     'as' => 'shop.checkout',
@@ -65,7 +62,6 @@ Route::post('/placeOrder', 'OrderController@placeOrder')->name('shop.placeOrder'
 //Route::post('/orders/{order}/update', 'OrderController@orderUpdate')->name('shop.order');
 
 
-Route::get('/manageOrders', 'OrderController@editManageOrders')->name('shop.manage');
 
 
 
