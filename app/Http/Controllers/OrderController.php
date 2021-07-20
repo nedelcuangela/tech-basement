@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Mail\OrderStatus;
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,9 +28,11 @@ class OrderController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * @return Application|Factory|\Illuminate\Contracts\View\View
+     */
     public function chart()
     {
-
         $orders = Order::select(DB::raw('DATE(created_at) as date, SUM(total) as d_total'))->groupBy('date')->get();
         $labels = []; $data = [];
 
@@ -37,6 +44,9 @@ class OrderController extends Controller
         return view('shop.statistics', compact('labels', 'data'));
     }
 
+    /**
+     * @return Application|Factory|\Illuminate\Contracts\View\View
+     */
     public function manageOrder()
     {
         $orders = Order::where('status', 'Pending')->latest()->get();
@@ -44,30 +54,42 @@ class OrderController extends Controller
         return view('shop.manageOrders', compact('orders'));
     }
 
+    /**
+     * @param Order $order
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
+     */
     public function orderUpdate( Order $order, Request $request) {
         $customer = User::find($order->id_client);
         $order->status=$request->status;
         $order->save();
         Mail::to($request->user())->send(new OrderStatus($order, $customer));
+
         return redirect(route('shop.manage'));
     }
 
+    /**
+     * @param Order $order
+     * @return Application|RedirectResponse|Redirector
+     */
     public function destroy(Order $order) {
-
         $order->delete();
 
         return redirect('orders');
     }
 
+    /**
+     * @return Application|Factory|\Illuminate\Contracts\View\View
+     */
     public function placeOrder() {
 
-        return view('shop.placeOrder', compact('shop', 'products'));
+        return view('shop.placeOrder');
     }
 
     /**
      * @param Request $request
      * @param Order $order
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|\Illuminate\Contracts\View\View
      */
     public function checkout(Request $request, Order $order)
     {
@@ -87,25 +109,25 @@ class OrderController extends Controller
         $order->save();
 
         session([
-
             'shop' => new Cart(null),
         ]);
 
-        return view('shop.checkout', compact('products', 'shop'));
+        return view('shop.checkout', compact('order', 'cart'));
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|\Illuminate\Contracts\View\View
      */
     public function orderHistory() {
-
         $orders = Order::where('id_client', '=', Auth::user()->id)->latest()->get();
 
         return view('shop.orderHistory', compact('orders'));
     }
 
+    /**
+     * @return Application|Factory|\Illuminate\Contracts\View\View
+     */
     public function index() {
-
         $orders = Order::all();
 
         if (request()->sort == 'earliest_latest') {
@@ -120,7 +142,7 @@ class OrderController extends Controller
 
     /**
      * @param Order $order
-     * @return Order
+     * @return Application|Factory|\Illuminate\Contracts\View\View
      */
     public function showOrder(Order $order)
     {
@@ -129,6 +151,9 @@ class OrderController extends Controller
         return view('shop.orders', compact('products', 'order'));
     }
 
+    /**
+     * @return array
+     */
     private function validateRequest() {
 
         return request()->validate([
@@ -140,9 +165,8 @@ class OrderController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-
     public function store(Request $request)
     {
         try {
@@ -153,7 +177,6 @@ class OrderController extends Controller
             ]);
 
             if ($validator->fails()) {
-
                 return redirect()->back()->with(['error' => 'Validation failed'])->withErrors($validator->errors())->withInput($request->all());
             }
 
@@ -168,6 +191,7 @@ class OrderController extends Controller
                 return redirect()->back()->with(['success' => 'Order created!']);
             }
         } catch (\Exception $e) {
+
             return redirect()->back()->with(['error' => 'Order not Created!']);
         }
     }

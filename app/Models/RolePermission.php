@@ -3,18 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class RolePermission extends Model
 {
     protected $table = 'roles_permissions';
 
-    public function permission()
+    public function permission(): BelongsTo
     {
-        return $this->hasOne(Permission::class, 'id', 'permission_id');
+        return $this->belongsTo(Permission::class, 'id', 'permission_id');
     }
 
-    public function role()
+    public function role(): BelongsTo
     {
-        return $this->hasOne(Role::class);
+        return $this->belongsTo(Role::class);
     }
 }

@@ -82,7 +82,9 @@
                                 @else
                                     <div class="shopping-cart-center">
                                         <li>
-                                            <a href="/shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a> <span class="badge badge-primary">{{ Session::has('cart') ? Session::get('cart')->totalQty: '' }}</span>
+{{--                                            <a href="/shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a> <span class="badge badge-primary">{{ Session::has('shop')->products ? count(\Illuminate\Support\Facades\Session::get('shop')->products) : '' }}</span>--}}
+
+                                            <a href="/shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a> <span class="badge badge-primary">{{ Session::get('shop')->products ? count(Session::get('shop')->products): '' }}</span>
                                         </li>
                                     </div>
                                     <li class="nav-item dropdown">

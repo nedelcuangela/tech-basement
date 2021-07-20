@@ -19,14 +19,16 @@
         <div class="container">
             <div class="row">
                 @foreach($products->unique('category') as $product)
-                <div class="col-md-3">
-                    <div class="shipping-box">
-                        <div class="box-title">
-                            <h3>{{ $product->category }}</h3>
-                            <p>Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum massa, sit amet tristique sem. </p>
+                    <a href="#">
+                        <div class="col-md-3">
+                            <div class="shipping-box">
+                                <div class="box-title">
+                                    <h3>{{ $product->category }}</h3>
+                                    <p>Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum massa, sit amet tristique sem. </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </a>
                 @endforeach
             </div>
         </div>

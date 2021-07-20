@@ -23,7 +23,6 @@ class PermissionController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-//        $this->middleware('role');
     }
 
     /**
@@ -40,6 +39,7 @@ class PermissionController extends Controller
     public function index()
     {
         $permissions = Permission::all();
+
         return view('permissions.index', compact('permissions'));
     }
 
@@ -110,6 +110,7 @@ class PermissionController extends Controller
                 return redirect()->back()->with(['succes' => 'Role created!']);
             }
         } catch (\Exception $e) {
+
             return redirect()->back()->with(['error' => 'Role not Created!']);
         }
     }

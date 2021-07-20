@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Role extends Model
+class Category extends Model
 {
     protected $guarded = [];
 
-    /**
-     * @return HasMany
-     */
-    public function users(): HasMany
+    public function product(): HasMany
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Product::class);
     }
 }

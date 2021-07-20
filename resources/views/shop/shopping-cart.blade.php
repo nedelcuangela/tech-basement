@@ -7,7 +7,7 @@
 @section('content')
     @if(empty($cart) || $cart->products != null)
         <div class="checkout-form">
-            <form action="{{ route('shop.checkout') }}" method="POST">
+{{--            <form action="{{ route('shop.checkout') }}" method="POST">--}}
                 <form action="{{ route('shop.placeOrder') }}" method="POST">
                     <h3>Products:</h3>
                     <div class="row">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </form>
-            </form>
+{{--            </form>--}}
         </div>
 
     @else

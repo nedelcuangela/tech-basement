@@ -7,7 +7,9 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 
 class RoleController extends Controller
@@ -36,9 +38,8 @@ class RoleController extends Controller
 
     /**
      * @param Role $role
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
-
     public function update(Role $role)
     {
         $role->update($this->validateRequest());
@@ -48,9 +49,8 @@ class RoleController extends Controller
 
     /**
      * @param Role $role
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|\Illuminate\View\View
      */
-
     public function edit(Role $role)
     {
         return view('roles.edit', compact('role'));
@@ -58,9 +58,8 @@ class RoleController extends Controller
 
     /**
      * @param Role $role
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|\Illuminate\View\View
      */
-
     public function show(Role $role)
     {
         return view('roles.show', compact('role'));
@@ -69,12 +68,6 @@ class RoleController extends Controller
 
     public function index()
     {
-
-//        if(auth()->check() && !auth()->user()->hasRole('admin'))
-//        {
-//            return redirect('/');
-//        }
-
         $roles = \App\Models\Role::all();
 
         return view('roles.index', compact('roles'));
@@ -83,8 +76,6 @@ class RoleController extends Controller
     /**
      * @return array
      */
-
-
     private function validateRequest()
     {
         return request()->validate([
@@ -95,9 +86,8 @@ class RoleController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-
     public function store(Request $request)
     {
         try {

@@ -41,30 +41,16 @@ Route::patch('/products/{product:id}/update', [ProductController::class, 'update
 Route::get('/shopping-cart', [ProductController::class, 'getCart'])->name('shop.shopping-cart');
 Route::post('/add-to-shop/{id}', [ProductController::class, 'getAddToCart'])->name('product.AddToCart');
 Route::get('/permissions', [\App\Http\Controllers\PermissionController::class, 'index'])->name('permissions.index');
+Route::post('/shopping-cart/products', [OrderController::class, 'checkout'])->name('shop.checkout');
+Route::post('/placeOrder', [OrderController::class, 'placeOrder'])->name('shop.placeOrder');
+Route::get('/orders/{order}',[OrderController::class, 'showOrder'])->name('shop.order');
+Route::post('/orders/{order}/update', [OrderController::class, 'orderUpdate'])->name('shop.order');
 
 
-
-
-Route::post('/shopping-cart/products', [
-    'as' => 'shop.checkout',
-    'uses' => 'OrderController@checkout',
-]);
 
 Route::get('/statistics', 'OrderController@chart')->name('shop.statistics');
-
 Route::get('/customer/print-pdf/{order}', 'UserController@printPDF')->name('customer.printpdf');
-Route::get('/orders','OrderController@index')->name('shop.orders');
-Route::get('/orders/{order}','OrderController@showOrder')->name('shop.order');
 Route::get('/orderHistory','OrderController@orderHistory')->name('shop.orderHistory');
-Route::post('/placeOrder', 'OrderController@placeOrder')->name('shop.placeOrder');
-
-
-//Route::post('/orders/{order}/update', 'OrderController@orderUpdate')->name('shop.order');
-
-
-
-
-
 Route::get('/reduce/{id}', [
 
     'uses' => 'ProductController@getReduceByOne',
@@ -100,14 +86,4 @@ Route::group(['prefix' => 'role'], function () {
 });
 
 Auth::routes();
-
-
-
-
-
-//Route::resource('users', UserController::class);
-//Route::resource('products', ProductController::class);
-
-
-
 
