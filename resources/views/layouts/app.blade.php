@@ -24,8 +24,6 @@
                                     aria-label="{{ __('Toggle navigation') }}">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-
-
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item active">
@@ -35,38 +33,18 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="/products">Products</a>
                                     </li>
-{{--                                    @if(Auth::user()->role_id == 1)--}}
-
+                                    @if(Auth::user()->role_id == 1)
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/manage-orders">Manage Pending Orders</a>
+                                            <a class="nav-link" href="/admin/dashboard">Admin Dashboard</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/users">User List</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/roles">Site Roles</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/permissions">Site Permissions</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/orders">Manage Orders</a>
-                                        </li>
-
-{{--                                    @endif--}}
+                                    @endif
                                 </ul>
                             </div>
                         </div>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <!-- Left Side Of Navbar -->
                             <ul class="navbar-nav mr-auto">
-
                             </ul>
-
-                            <!-- Right Side Of Navbar -->
                             <ul class="navbar-nav ml-auto">
-                                <!-- Authentication Links -->
-
                                 @guest
                                     @if (Route::has('login'))
                                         <li class="nav-item">
@@ -83,7 +61,6 @@
                                     <div class="shopping-cart-center">
                                         <li>
 {{--                                            <a href="/shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a> <span class="badge badge-primary">{{ Session::has('shop')->products ? count(\Illuminate\Support\Facades\Session::get('shop')->products) : '' }}</span>--}}
-
                                             <a href="/shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a> <span class="badge badge-primary">{{ Session::get('shop')->products ? count(Session::get('shop')->products): '' }}</span>
                                         </li>
                                     </div>
@@ -102,7 +79,6 @@
                                                              document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
-
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf
                                             </form>
@@ -114,7 +90,6 @@
                         </div>
                     </nav>
                 </div>
-
                 <main class="py-4">
                     @yield('content')
                 </main>

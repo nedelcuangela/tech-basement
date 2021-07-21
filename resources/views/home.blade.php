@@ -9,7 +9,8 @@
                     <h6>BEST QUALITY PRODUCTS</h6>
                     <h1>Lorem ipsum dolor sit amet!</h1>
                     <p>Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum massa, sit amet tristique sem. </p>
-                    <button type="button" class="btn btn-secondary">Buy now</button>
+{{--                    <button type="button" class="btn btn-secondary"></button>--}}
+                    <button class="btn btn-secondary" onclick="location.href='/products'" type="button">Buy now</button>
                 </div>
             </div>
         </div>
@@ -19,16 +20,16 @@
         <div class="container">
             <div class="row">
                 @foreach($products->unique('category') as $product)
-                    <a href="#">
                         <div class="col-md-3">
                             <div class="shipping-box">
                                 <div class="box-title">
+                                    <a href="#">
                                     <h3>{{ $product->category }}</h3>
+                                    </a>
                                     <p>Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum massa, sit amet tristique sem. </p>
                                 </div>
                             </div>
                         </div>
-                    </a>
                 @endforeach
             </div>
         </div>

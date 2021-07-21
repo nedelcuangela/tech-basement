@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PermissionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -40,28 +42,21 @@ Route::get('/products/{product:id}/edit', [ProductController::class, 'edit'])->n
 Route::patch('/products/{product:id}/update', [ProductController::class, 'update'])->name('products.update');
 Route::get('/shopping-cart', [ProductController::class, 'getCart'])->name('shop.shopping-cart');
 Route::post('/add-to-shop/{id}', [ProductController::class, 'getAddToCart'])->name('product.AddToCart');
-Route::get('/permissions', [\App\Http\Controllers\PermissionController::class, 'index'])->name('permissions.index');
+Route::get('/permissions', [PermissionController::class, 'index'])->name('permissions.index');
 Route::post('/shopping-cart/products', [OrderController::class, 'checkout'])->name('shop.checkout');
 Route::post('/placeOrder', [OrderController::class, 'placeOrder'])->name('shop.placeOrder');
 Route::get('/orders/{order}',[OrderController::class, 'showOrder'])->name('shop.order');
 Route::post('/orders/{order}/update', [OrderController::class, 'orderUpdate'])->name('shop.order');
+Route::get('/orders', [OrderController::class, 'index'])->name('shop.index');
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/reduce/{id}', [ProductController::class, 'getReduceByOne'])->name('shop.reduceByOne');
+Route::get('/delete/{id}', [ProductController::class, 'removeItem'])->name('shop.removeItem');
 
 
 
 Route::get('/statistics', 'OrderController@chart')->name('shop.statistics');
 Route::get('/customer/print-pdf/{order}', 'UserController@printPDF')->name('customer.printpdf');
 Route::get('/orderHistory','OrderController@orderHistory')->name('shop.orderHistory');
-Route::get('/reduce/{id}', [
-
-    'uses' => 'ProductController@getReduceByOne',
-    'as' => 'shop.reduceByOne'
-]);
-
-Route::get('/delete/{id}', [
-
-    'uses' => 'ProductController@removeItem',
-    'as' => 'shop.removeItem'
-]);
 
 
 Auth::routes(['verify' => true]);

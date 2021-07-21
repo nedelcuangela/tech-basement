@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Permission;
-use App\Role;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Model;
