@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PermissionController;
 use Illuminate\Support\Facades\Route;
@@ -51,7 +52,8 @@ Route::get('/orders', [OrderController::class, 'index'])->name('shop.index');
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/reduce/{id}', [ProductController::class, 'getReduceByOne'])->name('shop.reduceByOne');
 Route::get('/delete/{id}', [ProductController::class, 'removeItem'])->name('shop.removeItem');
-
+Route::get('change-password', [ChangePasswordController::class, 'index']);
+Route::post('change-password', [ChangePasswordController::class, 'store'])->name('change.password');
 
 
 Route::get('/statistics', 'OrderController@chart')->name('shop.statistics');
