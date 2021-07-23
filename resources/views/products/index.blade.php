@@ -32,7 +32,7 @@
                         <div class="filter_products d-flex ml-5 mb-5" style="align-items: center;">
                             <div style="font-size: 18px; font-weight: bold;" class="mr-2">Filters: </div>
                             <div class="dropdown">
-                                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 0.375rem 1.75rem;">Sort by</button>
+                                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by</button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="{{route('products.index', ['sort' => 'low_high'])}}">Price ASC</a>
                                     <a class="dropdown-item" href="{{route('products.index', ['sort' => 'high_low'])}}">Price DESC</a>
@@ -42,9 +42,9 @@
                             </div>
                         </div>
 
-                        <div class="row ml-4 mr-4">
+                        <div class="row">
                             @foreach($products as $product)
-                                <div class="col">
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="card mt-2">
                                         <img src="{{ asset('storage/'. $product->image) }}"  alt="">
                                         <div class="card-body">

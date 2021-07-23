@@ -7,11 +7,46 @@
     <title>{{'Tech Basement'}}</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
 </head>
+<style>
+    @media (min-width: 768px) {
+        .navbar-expand-md {
+            flex-flow: row nowrap;
+            justify-content: space-around !important;
+        }
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: #f8fafc;
+    }
+</style>
+<script>
+    $( document ).ready(function() {
+        $( ".open-dropdown-toggle" ).on( "click" , function() {
+            $('.shopping-cart-dropdown').toggle('slow');
+        });
+    });
+</script>
 <body>
+
+{{--@dd(Session::get('shop')->products)--}}
+
+
 <div class="content-page">
     <div class="page-top">
         <div id="app">
@@ -21,7 +56,7 @@
                 </div>
                 <div class="logo-site">
                     <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" style="overflow: visible;"
-                         viewBox="0 0 350 500" data-svgdocument="" id="_lozZXmrQ4Bjc2v8Jjk5tP" class="fl-svgdocument"
+                         viewBox="0 0 500 550" data-svgdocument="" id="_lozZXmrQ4Bjc2v8Jjk5tP" class="fl-svgdocument"
                          x="0" y="0" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <defs id="_OCOhh_n_vN0Rio0Fz3bQR"
                               transform="matrix(0.7754893344140974, 0, 0, 0.7754893344140974, -81.92650430207993, 101.79068281867556)"
@@ -98,11 +133,34 @@
                                     </li>
                                 @endif
                             @else
-                                {{--                                                <div class="shopping-cart-center">--}}
-                                {{--                                                    <li>--}}
-                                {{--                                                        <a href="/shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a> <span class="badge badge-primary">{{ Session::get('shop') != null ? count(Session::get('shop')->products): '' }}</span>--}}
-                                {{--                                                    </li>--}}
-                                {{--                                                </div>--}}
+                                <li class="nav-item">
+                                <div class="cart">
+                                    <a class="open-dropdown-toggle" href="#">
+                                        <span class="count">{{ Session::get('shop') != null ? count(Session::get('shop')->products): '' }}</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                                    </a>
+                                </div>
+
+                                <div style="display: none" class="shopping-cart-dropdown">
+                                    <div class="card cart-drop" style="padding-bottom: 10px;  width: 26rem;position: absolute;z-index: 9999;top: 80px;right: 17%;">
+                                        <div class="card-body">
+                                            <ul class="shopping-cart-items">
+                                                @foreach(Session::get('shop')->products as $product)
+                                                    <li class="clearfix">
+                                                        <img class="dropdown-image" src="{{ asset('storage/'. $product['product']->image) }}" alt="item1" />
+                                                        <span style="color: black" class="item-name">{{$product['product']->name}}</span>
+                                                        <span style="color: black" class="item-price">{{$product['product']->price}} lei</span>
+                                                        <span style="color: black" class="item-quantity">Qty: {{$product['qty']}}</span>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        <a href="/shopping-cart" style="background-color: #191542" class="go-to-cart btn btn-success">Checkout</a>
+
+                                    </div>
+                                </div>
+
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="https://bitexlive.com/account"><img class="icon-account"
                                                                                                   style="width: 80%"
@@ -139,7 +197,7 @@
             </nav>
             <hr id="hr-market">
         </div>
-        <main class="py-4">
+        <main style="padding-top: 0;" class="py-4 full-width-content">
             @yield('content')
         </main>
     </div>

@@ -6,6 +6,20 @@
 
 @section('content')
     @if(empty($cart) || $cart->products != null)
+{{--        <div class="myaccount container" id="myGroup">--}}
+{{--            <div class="collapse show " id="main-tab" data-parent="#myGroup">--}}
+{{--                <div class="card card-my-account">--}}
+{{--                    <div class="card-body my-acc">--}}
+
+{{--                        --}}
+{{--                        --}}
+{{--                        --}}
+{{--                        --}}
+{{--                        --}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
