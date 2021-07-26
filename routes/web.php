@@ -2,12 +2,15 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginSecurityController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PermissionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
+
 
 
 
@@ -23,8 +26,26 @@ use App\Http\Controllers\RoleController;
 */
 
 
+Route::group(['prefix'=>'2fa'], function(){
+    Route::get('/',[LoginSecurityController::class, 'show2faForm']);
+    Route::post('/generateSecret',[LoginSecurityController::class, 'generate2faSecret'])->name('generate2faSecret');
+    Route::post('/enable2fa',[LoginSecurityController::class, 'enable2fa'])->name('enable2fa');
+    Route::post('/disable2fa',[LoginSecurityController::class, 'disable2fa'])->name('disable2fa');
+
+    // 2fa middleware
+    Route::post('/2faVerify', function () {
+        return redirect(URL()->previous());
+    })->name('2faVerify')->middleware('2fa');
+});
+
+// test middleware
+Route::get('/test_middleware', function () {
+    return "2FA middleware work!";
+})->middleware(['auth', '2fa']);
+
+
 Route::view('/', 'home');
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 
 Route::get('/users', [UserController::class, 'index']);

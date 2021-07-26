@@ -55,7 +55,6 @@
 {{--    </div>--}}
 
 
-
     <div class="myaccount container" id="myGroup">
         <div class="collapse show " id="main-tab" data-parent="#myGroup">
             <div class="card card-my-account">
@@ -65,56 +64,56 @@
                     <div class="cog-pic"><img src="https://bitexlive.com/assets/home/newtheme/img/cog.svg" height="70" alt=""></div>
                     <div class=" mini-cards row">
                         <div class="col-lg-4 col-md-6 col-sm-12 d-flex align-items-stretch">
-                            <div class="card mini-card sec-opt" data-toggle="collapse" href="#options-tab" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                <img src="https://bitexlive.com/assets/home/newtheme/img/padlock-1.svg" alt="">
+                            <div class="card mini-card sec-opt" role="button">
+                                <img class="plus-icon" src="https://img.icons8.com/ios/100/000000/add--v1.png"/>
                                 <div class="card-body">
-                                    <p class="title-mini-card medium">Security Options</p>
-                                    <p class="description-mini-card">Security for login and withdraw transactions</p>
+                                    <a href="/products/create" class="card-admin-dashboard-link title-mini-card medium stretched-link">Add Products</a>
+                                    <p class="description-mini-card">Here you add new products to the shop.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 d-flex align-items-stretch">
-                            <div class="card mini-card  pers-det" data-toggle="collapse" href="#info-tab" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                <img src="https://bitexlive.com/assets/home/newtheme/img/login.svg" alt="">
+                            <div class="card mini-card  pers-det" role="button">
+                                <img class="pending-orders" src="https://img.icons8.com/ios/100/000000/data-pending.png"/>
                                 <div class="card-body">
-                                    <p class="title-mini-card medium">Basic Form</p>
-                                    <p class="description-mini-card">Information required for authentication</p>
+                                    <a href="/manage-orders" class="card-admin-dashboard-link title-mini-card medium stretched-link">Manage Pending Orders</a>
+                                    <p class="description-mini-card">Here you can accept or deny pending orders.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 d-flex align-items-stretch">
-                            <div class="card mini-card ch-pass" data-toggle="collapse" href="#pass-tab" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                <img src="https://bitexlive.com/assets/home/newtheme/img/padlock-2.svg" alt="">
+                            <div class="card mini-card ch-pass" role="button">
+                                <img class="users-icon" src="https://img.icons8.com/fluent-systems-regular/96/000000/users-settings.png"/>
                                 <div class="card-body">
-                                    <p class="title-mini-card medium">Password Change</p>
-                                    <p class="description-mini-card">Click here to change your password.</p>
+                                    <a href="/users" class="card-admin-dashboard-link title-mini-card medium stretched-link">User List</a>
+                                    <p class="description-mini-card">Here you can manage the user list of the system.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 d-flex align-items-stretch">
-                            <div class="card mini-card  ip-wh" data-toggle="collapse" href="#ip-tab" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                <img src="https://bitexlive.com/assets/home/newtheme/img/checklist.svg" alt="">
+                            <div class="card mini-card  ip-wh" role="button">
+                                <img class="permissions-icon" src="https://img.icons8.com/ios/100/000000/admin-settings-male.png"/>
                                 <div class="card-body">
-                                    <p class="title-mini-card medium">IP Whitelist</p>
-                                    <p class="description-mini-card">Click here for a secure ip address</p>
+                                    <a href="/roles" class="card-admin-dashboard-link title-mini-card medium stretched-link">Site Roles</a>
+                                    <p class="description-mini-card">Here you can manage the site roles.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 d-flex align-items-stretch">
-                            <div class="card mini-card fa-set" data-toggle="collapse" href="#twofa-tab" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                <img src="https://bitexlive.com/assets/home/newtheme/img/authentication-1.svg" alt="">
+                            <div class="card mini-card fa-set" role="button">
+                                <img class="roles-icon" src="https://img.icons8.com/ios/100/000000/restriction-shield.png"/>
                                 <div class="card-body">
-                                    <p class="title-mini-card medium">2FA Verification</p>
-                                    <p class="description-mini-card">Click here to turn 2FA on and off.</p>
+                                    <a href="/permissions" class="card-admin-dashboard-link title-mini-card medium stretched-link">Site Permissions</a>
+                                    <p class="description-mini-card">Here you can manage the site permissions.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 d-flex align-items-stretch">
-                            <div class="card mini-card fa-set" data-toggle="collapse" href="#twofa-tab" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                <img src="https://bitexlive.com/assets/home/newtheme/img/authentication-1.svg" alt="">
+                            <div class="card mini-card fa-set" role="button">
+                                <img class="orders-icon" src="https://img.icons8.com/ios/100/000000/open-box.png"/>
                                 <div class="card-body">
-                                    <p class="title-mini-card medium">2FA Verification</p>
-                                    <p class="description-mini-card">Click here to turn 2FA on and off.</p>
+                                    <a href="/orders" class="card-admin-dashboard-link title-mini-card medium stretched-link">Manage Orders</a>
+                                    <p class="description-mini-card">Here are the orders stored.</p>
                                 </div>
                             </div>
                         </div>

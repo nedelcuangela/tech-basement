@@ -1,101 +1,92 @@
 @extends('layouts.app')
 
 @section('content')
+    <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
     <section id="head">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <svg id="ae8e3b67-68ad-47ca-99a9-8e5b053c0a6f" data-name="Layer 1"
-                         xmlns="http://www.w3.org/2000/svg" width="500" height="500"
-                         viewBox="0 0 974.75537 674.09487">
-                        <path d="M200.71917,407.36064c-18.046,14.76488,11.48379,144.36789,11.48379,144.36789s6.56217,197.68563,20.50679,206.70858,45.115-.82032,57.419-2.46083,1.64052-123.86109-16.40545-168.976S269.622,476.26352,269.622,476.26352l97.61237,18.86628s-59.05961,50.0366-56.59878,60.70013,65.62174,46.75545,77.10558,48.396,33.6311-65.62174,53.31769-111.557-134.52456-75.46506-134.52456-75.46506l-21.32711-40.19333S218.76519,392.59577,200.71917,407.36064Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#2f2e41"/>
-                        <path d="M249.71,761.841s-5.95236,20.83329,0,20.83329,16.865,5.95236,33.73,3.96824,11.90467-22.81735,0-25.79356-8.92851-26.78565-8.92851-26.78565c-3.9683-7.93648-22.81741,1.98412-22.81741,1.98412Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#2f2e41"/>
-                        <path d="M334.21617,596.17371s-10.21191,19.10945-4.39346,20.36467,15.23047,9.37512,32.13464,10.99219,16.44885-19.79375,5.43949-25.21351-3.079-28.06614-3.079-28.06614c-2.20534-8.59483-22.72269-2.87236-22.72269-2.87236Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#2f2e41"/>
-                        <path d="M211.7928,229.77171c1.64051,3.28109-5.74192,44.29468-5.74192,44.29468l6.56218,11.48381s37.73255-14.76481,31.99063-17.22565-4.92166-32.81089-4.92166-32.81089S210.15228,226.49062,211.7928,229.77171Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#ffb9b9"/>
-                        <circle cx="113.37253" cy="79.16753" r="50.29399" fill="#2f2e41"/>
-                        <circle cx="109.90398" cy="32.08409" r="20.81129" fill="#2f2e41"/>
-                        <path d="M231.63121,154.4627a21.0442,21.0442,0,0,0,2.16787.11252,20.81133,20.81133,0,1,0,0-41.62266,21.0442,21.0442,0,0,0-2.16787.11252,20.81211,20.81211,0,0,1,0,41.39762Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#2f2e41"/>
-                        <circle cx="114.75567" cy="103.69483" r="34.45142" fill="#ffb9b9"/>
-                        <path d="M177.75143,269.55494c-10.66358,2.4608-28.70955,28.70952-28.70955,28.70952L177.75143,326.974s20.5068,77.10557,22.96763,80.38666c16.12166,21.49552,88.58941-26.24868,88.58941-26.24868s-2.871-23.37776-1.23041-34.86157c1.57784-11.04477-6.152-33.221-6.152-33.221s27.069-11.48381,21.32711-22.96762-41.01365-37.7325-55.77852-28.70952-44.29468,0-44.29468,0S188.415,267.09414,177.75143,269.55494Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#e6e6e6"/>
-                        <path d="M387.33106,434.8398s46.75545,40.19337,58.2393,31.99061-44.29468-36.91227-44.29468-36.91227Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#ffb9b9"/>
-                        <path d="M177.34139,420.89516c6.56218,7.38247,37.73255-11.48381,33.73637-19.86222s-28.81477,8.37841-28.81477,8.37841S170.77921,413.51269,177.34139,420.89516Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#ffb9b9"/>
-                        <path d="M177.75149,309.74827l-34.45141,63.98122s39.373,32.81092,44.29462,33.63115-9.84327,22.14734-9.84327,22.14734-44.29468-31.17035-61.52039-46.75551,32.8109-84.488,32.8109-84.488l14.76493-9.023Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#e6e6e6"/>
-                        <path d="M277.82469,307.2875,318.018,369.62817s61.52044,68.90288,69.72314,72.18394,18.046-12.3041,18.046-12.3041l-73.82448-89.40967-27.88923-50.0366-10.66353-4.10135Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#e6e6e6"/>
-                        <ellipse cx="113.37253" cy="62.76198" rx="34.68552" ry="20.81131" fill="#2f2e41"/>
-                        <path d="M323.29931,624.742a4.29286,4.29286,0,0,0-4.28784,4.28783V775.27447a4.2928,4.2928,0,0,0,4.28784,4.28777h498.6688a4.29285,4.29285,0,0,0,4.28778-4.28777V629.02977a4.29283,4.29283,0,0,0-4.28778-4.28784Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#e6e6e6"/>
-                        <path d="M329.75661,768.81711H815.51047V635.48718H329.75661Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#fff"/>
-                        <path d="M754.19649,741.15725a7.10265,7.10265,0,1,0,0,14.20529H782.607a7.10264,7.10264,0,1,0,0-14.20529H754.19649Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#08ce5e"/>
-                        <rect x="349.1219" y="614.42769" width="327.96547" height="1.86875" fill="#e6e6e6"/>
-                        <circle cx="280.56677" cy="589.19958" r="41.36917" fill="#08ce5e"/>
-                        <polygon
-                                points="349.64 603.993 348.604 602.438 382.684 579.717 406.054 590.935 439.669 569.459 506.537 597.983 559.787 571.825 611.495 592.788 676.468 535.241 677.707 536.64 611.867 594.956 559.86 573.871 506.591 600.038 439.843 571.565 406.184 593.071 382.835 581.864 349.64 603.993"
-                                fill="#3f3d56"/>
-                        <path d="M467.81765,742.1343a6.07344,6.07344,0,1,0,0,12.14687h63.53747a6.07344,6.07344,0,0,0,0-12.14687Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#e6e6e6"/>
-                        <path d="M408.98917,683.6448h6.46415l-13.45045,13.311a12.5581,12.5581,0,0,1-17.63115,0l-13.44867-13.311h6.46416l10.21748,10.112a7.95365,7.95365,0,0,0,11.167,0ZM377.305,720.65949h-6.46416l13.53272-13.39324a12.55811,12.55811,0,0,1,17.63114,0l13.53272,13.39324h-6.46416l-10.30153-10.19424a7.95365,7.95365,0,0,0-11.167,0Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#fff"/>
-                        <path d="M388.23446,156.30683a4.29285,4.29285,0,0,0-4.28783,4.28784V306.83934a4.2928,4.2928,0,0,0,4.28783,4.28778H886.90327a4.29287,4.29287,0,0,0,4.28777-4.28778V160.59464a4.29282,4.29282,0,0,0-4.28777-4.28784Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#e6e6e6"/>
-                        <path d="M394.69176,300.382H880.44562V167.05205H394.69176Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#fff"/>
-                        <path d="M819.13164,272.72212a7.10265,7.10265,0,1,0,0,14.2053h28.41054a7.10265,7.10265,0,0,0,0-14.2053H819.13164Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#08ce5e"/>
-                        <rect x="414.05705" y="145.99257" width="327.96547" height="1.86875" fill="#e6e6e6"/>
-                        <circle cx="345.50192" cy="120.76445" r="41.36917" fill="#08ce5e"/>
-                        <polygon
-                                points="414.575 135.557 413.539 134.002 447.619 111.282 470.989 122.5 504.604 101.024 505.058 101.217 571.472 129.548 624.722 103.39 676.43 124.353 741.403 66.805 742.642 68.204 676.802 126.52 624.795 105.436 571.527 131.603 504.779 103.13 471.119 124.635 447.77 113.427 414.575 135.557"
-                                fill="#3f3d56"/>
-                        <path d="M532.7528,273.69917a6.07344,6.07344,0,0,0,0,12.14687h63.53747a6.07343,6.07343,0,1,0,0-12.14687Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#e6e6e6"/>
-                        <path d="M474.76928,228.88845c.77325-5.17689-3.16839-7.95986-8.558-9.8164l1.74833-7.01275-4.26991-1.06383-1.70212,6.82795c-1.121-.27963-2.27356-.54346-3.41884-.80486l1.71428-6.87294-4.26626-1.06383-1.74954,7.01033c-.92887-.21155-1.84073-.42067-2.72583-.64073l.00486-.02188-5.88692-1.46991-1.13556,4.55926s3.16717.72584,3.1003.77082a2.27049,2.27049,0,0,1,1.98905,2.48268l-1.99148,7.989a3.53766,3.53766,0,0,1,.44376.14225l-.44985-.11185-2.7927,11.19147a1.55379,1.55379,0,0,1-1.95623,1.014c.04256.062-3.10273-.77447-3.10273-.77447l-2.11914,4.88753,5.55622,1.38481c1.03343.259,2.0462.53009,3.04194.7854l-1.76656,7.09422,4.26382,1.06383,1.75076-7.01762c1.16353.31611,2.29422.6079,3.40061.88267l-1.74346,6.9848,4.26869,1.06382,1.76656-7.07962c7.279,1.3775,12.75378.82188,15.0553-5.76048,1.85653-5.30091-.09119-8.35865-3.921-10.35379,2.789-.64559,4.89-2.48024,5.45045-6.2699Zm-9.7544,13.67658c-1.32036,5.30091-10.24436,2.43647-13.13919,1.71671l2.34407-9.39694c2.89361.72219,12.17141,2.152,10.79634,7.68023Zm1.31915-13.75317c-1.20365,4.82187-8.63221,2.372-11.04315,1.77142l2.12523-8.52278C459.82705,222.6611,467.58874,223.78208,466.334,228.81186Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#fff"/>
-                        <path d="M584.4211,390.5244a4.29284,4.29284,0,0,0-4.28783,4.28783V541.0569a4.2928,4.2928,0,0,0,4.28783,4.28778h498.66881a4.29285,4.29285,0,0,0,4.28777-4.28778V394.8122a4.29281,4.29281,0,0,0-4.28777-4.28783Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#e6e6e6"/>
-                        <path d="M590.8784,534.59954h485.75386V401.26962H590.8784Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#fff"/>
-                        <path d="M1015.31828,506.93968a7.10265,7.10265,0,1,0,0,14.2053h28.41054a7.10265,7.10265,0,1,0,0-14.2053h-28.41054Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#08ce5e"/>
-                        <rect x="610.24369" y="380.21013" width="327.96547" height="1.86875" fill="#e6e6e6"/>
-                        <circle cx="541.68856" cy="354.98202" r="41.36917" fill="#08ce5e"/>
-                        <polygon
-                                points="610.762 369.775 609.725 368.22 643.805 345.5 667.176 356.718 700.79 335.242 701.245 335.435 767.658 363.766 820.909 337.608 872.617 358.57 937.59 301.023 938.829 302.423 872.989 360.738 820.982 339.654 767.713 365.821 700.966 337.348 667.305 358.853 643.957 347.646 610.762 369.775"
-                                fill="#3f3d56"/>
-                        <path d="M728.93944,507.91674a6.07343,6.07343,0,0,0,0,12.14687h63.53747a6.07343,6.07343,0,1,0,0-12.14687Z"
-                              transform="translate(-112.62232 -112.95256)" fill="#e6e6e6"/>
-                        <polygon
-                                points="541.684 382.247 558.431 358.662 541.684 368.55 541.684 368.55 524.947 358.662 541.683 382.247 541.683 382.247 541.684 382.247 541.684 382.247 541.684 382.247"
-                                fill="#fff"/>
-                        <polygon
-                                points="541.683 365.381 541.683 365.381 541.684 365.381 541.684 365.381 558.421 355.488 541.684 327.717 541.684 327.717 541.684 327.717 541.683 327.717 541.683 327.717 524.947 355.488 541.683 365.381"
-                                fill="#fff"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="fb0462f1-4822-46c6-85a1-002b71cfcb82"
+                         data-name="Layer 1" width="980.49384" height="751.89531" viewBox="0 0 980.49384 751.89531">
+                        <title>nakamoto</title>
+                        <rect x="313.49413" y="116.99986" width="2" height="107" fill="#3f3d56"/>
+                        <rect x="313.49413" y="255.85045" width="2" height="94.14941" fill="#3f3d56"/>
+                        <rect x="310.49413" y="364.99986" width="155" height="2" fill="#3f3d56"/>
+                        <rect x="244.49413" y="391.99986" width="2" height="85" fill="#3f3d56"/>
+                        <rect x="262.49413" y="491.99986" width="235" height="2" fill="#3f3d56"/>
+                        <path d="M623.24692,551.05234" transform="translate(-109.75308 -74.05234)" fill="none"
+                              stroke="#3f3d56" stroke-miterlimit="10" stroke-width="2"/>
+                        <path d="M623.24692,469.05234" transform="translate(-109.75308 -74.05234)" fill="none"
+                              stroke="#3f3d56" stroke-miterlimit="10" stroke-width="2"/>
+                        <rect x="691.49413" y="48.99986" width="2" height="101" fill="#3f3d56"/>
+                        <rect x="529.45995" y="165.99986" width="147.03418" height="2" fill="#3f3d56"/>
+                        <rect x="512.49399" y="181.9999" width="2" height="135" fill="#3f3d56"/>
+                        <path d="M424.24721,331.0522a17,17,0,1,1,17-17A17.019,17.019,0,0,1,424.24721,331.0522Zm0-32a15,15,0,1,0,15,15A15.01672,15.01672,0,0,0,424.24721,299.0522Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3f3d56"/>
+                        <path d="M356.24721,584.0522a17,17,0,1,1,17-17A17.019,17.019,0,0,1,356.24721,584.0522Zm0-32a15,15,0,1,0,15,15A15.01672,15.01672,0,0,0,356.24721,552.0522Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3f3d56"/>
+                        <circle cx="315.49384" cy="366" r="16" fill="#3bf7b9"/>
+                        <rect x="728.49413" y="238.99986" width="166" height="2" fill="#3f3d56"/>
+                        <rect x="711.49413" y="255.85045" width="2" height="94.14941" fill="#3f3d56"/>
+                        <rect x="562.49413" y="364.99986" width="133" height="2" fill="#3f3d56"/>
+                        <rect x="796.49413" y="373.99986" width="138" height="2" fill="#3f3d56"/>
+                        <rect x="780.49413" y="391.99986" width="2" height="85" fill="#3f3d56"/>
+                        <rect x="529.49413" y="491.99986" width="235" height="2" fill="#3f3d56"/>
+                        <rect x="512.49413" y="414.99986" width="2" height="62" fill="#3f3d56"/>
+                        <circle cx="712.49384" cy="240" r="16" fill="#3bf7b9"/>
+                        <path d="M802.24721,257.0522a17,17,0,1,1,17-17A17.019,17.019,0,0,1,802.24721,257.0522Zm0-32a15,15,0,1,0,15,15A15.01672,15.01672,0,0,0,802.24721,225.0522Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3f3d56"/>
+                        <path d="M623.24721,257.0522a17,17,0,1,1,17-17A17.019,17.019,0,0,1,623.24721,257.0522Zm0-32a15,15,0,1,0,15,15A15.01672,15.01672,0,0,0,623.24721,225.0522Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3f3d56"/>
+                        <path d="M890.24721,467.0522a17,17,0,1,1,17-17A17.019,17.019,0,0,1,890.24721,467.0522Zm0-32a15,15,0,1,0,15,15A15.01672,15.01672,0,0,0,890.24721,435.0522Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3f3d56"/>
+                        <circle cx="780.49384" cy="493" r="16" fill="#3bf7b9"/>
+                        <path d="M623.24721,584.0522a17,17,0,1,1,17-17A17.019,17.019,0,0,1,623.24721,584.0522Zm0-32a15,15,0,1,0,15,15A15.01672,15.01672,0,0,0,623.24721,552.0522Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3f3d56"/>
+                        <path d="M821.24721,457.0522a17,17,0,1,1,17-17A17.019,17.019,0,0,1,821.24721,457.0522Zm0-32a15,15,0,1,0,15,15A15.01672,15.01672,0,0,0,821.24721,425.0522Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3f3d56"/>
+                        <path d="M356.24692,416.05234a20,20,0,1,0,20,20A20.0588,20.0588,0,0,0,356.24692,416.05234Zm0,6a6,6,0,1,1-6,6,6.02013,6.02013,0,0,1,6-6Zm0,28.88462a14.56987,14.56987,0,0,1-12-6.40385c.09616-4,8-6.20192,12-6.20192s11.90385,2.20192,12,6.20192a14.59411,14.59411,0,0,1-12,6.40385Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3f3d56"/>
+                        <path d="M425.24692,143.05234a20,20,0,1,0,20,20A20.0588,20.0588,0,0,0,425.24692,143.05234Zm0,6a6,6,0,1,1-6,6,6.02013,6.02013,0,0,1,6-6Zm0,28.88462a14.56987,14.56987,0,0,1-12-6.40385c.09616-4,8-6.20192,12-6.20192s11.90385,2.20192,12,6.20192a14.59411,14.59411,0,0,1-12,6.40385Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3f3d56"/>
+                        <path d="M802.24692,74.05234a20,20,0,1,0,20,20A20.0588,20.0588,0,0,0,802.24692,74.05234Zm0,6a6,6,0,1,1-6,6,6.02013,6.02013,0,0,1,6-6Zm0,28.88462a14.56987,14.56987,0,0,1-12-6.40385c.09616-4,8-6.20192,12-6.20192s11.90385,2.20192,12,6.20192a14.59411,14.59411,0,0,1-12,6.40385Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3f3d56"/>
+                        <path d="M1032.24692,293.05234a20,20,0,1,0,20,20A20.0588,20.0588,0,0,0,1032.24692,293.05234Zm0,6a6,6,0,1,1-6,6,6.02013,6.02013,0,0,1,6-6Zm0,28.88462a14.56987,14.56987,0,0,1-12-6.40385c.09616-4,8-6.20192,12-6.20192s11.90385,2.20192,12,6.20192a14.59411,14.59411,0,0,1-12,6.40385Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3f3d56"/>
+                        <path d="M1070.24692,428.05234a20,20,0,1,0,20,20A20.0588,20.0588,0,0,0,1070.24692,428.05234Zm0,6a6,6,0,1,1-6,6,6.02013,6.02013,0,0,1,6-6Zm0,28.88462a14.56987,14.56987,0,0,1-12-6.40385c.09616-4,8-6.20192,12-6.20192s11.90385,2.20192,12,6.20192a14.59411,14.59411,0,0,1-12,6.40385Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3f3d56"/>
+                        <path class="btc-circle-1" d="M624.52486,427.71889l-2.049,8.215c2.323.579,9.483,2.941,10.643-1.708C634.32786,429.37889,626.84786,428.29789,624.52486,427.71889Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3bf7b9"/>
+                        <path d="M621.44286,440.07989l-2.26,9.058c2.789.693,11.392,3.455,12.664-1.655C633.17586,442.1549,624.23186,440.77589,621.44286,440.07989Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3bf7b9"/>
+                        <path class="btc-component" d="M633.78686,403.26389a37.49274,37.49274,0,1,0,27.308,45.451A37.487,37.487,0,0,0,633.78686,403.26389Zm7.462,31.037c-.541,3.653-2.565,5.422-5.254,6.041,3.691,1.921,5.57,4.869,3.78,9.979-2.22,6.345-7.497,6.881-14.512,5.553l-1.703,6.824-4.115-1.025,1.68-6.733q-1.644-.40726-3.279-.85l-1.686,6.764-4.11-1.026,1.703-6.836c-.961-.246-1.937-.508-2.933-.757l-5.354-1.336,2.042-4.709s3.032.807,2.991.747a1.49616,1.49616,0,0,0,1.885-.978l2.691-10.787c.151.037.298.073.434.108a3.49556,3.49556,0,0,0-.427-.137l1.919-7.701a2.18915,2.18915,0,0,0-1.917-2.392c.065-.044-2.988-.743-2.988-.743l1.095-4.395,5.675,1.417-.005.021c.853.212,1.732.413,2.628.617l1.686-6.757,4.112,1.025-1.652,6.625c1.104.252,2.215.506,3.297.775l1.641-6.581,4.114,1.025-1.685,6.76C638.19585,426.6279,641.99486,429.3099,641.24886,434.3009Z"
+                              transform="translate(-109.75308 -74.05234)" fill="#3bf7b9"/>
+
                     </svg>
                 </div>
                 <div class="col-md-6">
                     <h1 class="main-h1-home">Practice your trading skills with no risk!</h1>
-                    <p style="color: white" class="text-home">Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus
+                    <p style="color: white" class="text-home">Vivamus feugiat, odio in aliquam venenatis, augue ante
+                        laoreet eros, eu mattis lacus
                         lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum
-                        massa, sit amet tristique sem.Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus
+                        massa, sit amet tristique sem.Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet
+                        eros, eu mattis lacus
                         lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum
-                        massa, sit amet tristique sem.Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus
+                        massa, sit amet tristique sem.Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet
+                        eros, eu mattis lacus
                         lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum
-                        massa, sit amet tristique sem.Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus
+                        massa, sit amet tristique sem.Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet
+                        eros, eu mattis lacus
                         lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum
-                        massa, sit amet tristique sem.Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus
+                        massa, sit amet tristique sem.Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet
+                        eros, eu mattis lacus
                         lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum
-                        massa, sit amet tristique sem.Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus
+                        massa, sit amet tristique sem.Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet
+                        eros, eu mattis lacus
                         lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum
                         massa, sit amet tristique sem.</p>
                 </div>
@@ -103,82 +94,236 @@
         </div>
     </section>
 
-{{--    <section id="shiping">--}}
-        <div class="container">
-            <div class="categories-row row">
-                @foreach($products->unique('category') as $product)
-                    <div class="col-md-3">
-                        <div class="card card-header-items shipping-box">
-                            <div class="box-title">
-                                <a href="#">
-                                    <h3 class="title-card-homepage" >{{ $product->category }}</h3>
-                                </a>
-                                <p>Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus
-                                    lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum
-                                    massa, sit amet tristique sem. </p>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-{{--    </section>--}}
-
-    <div class="myaccount container" id="myGroup">
-        <div class="collapse show " id="main-tab" data-parent="#myGroup">
-            <div class="card card-my-account">
-                <div class="card-body my-acc">
+    <script>
+        $(document).ready(function () {
+            endpoint = 'live'
+            access_key = '5a38e853b2fad378555f8e382553756d';
 
 
-                    <div class="products-container">
-                        <div class="filter_products d-flex ml-5 mb-5" style="align-items: center;">
-                            <div style="font-size: 18px; font-weight: bold;" class="mr-2">Filters:</div>
-                            <div class="dropdown">
-                                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                        style="padding: 0.375rem 1.75rem;">Sort by
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="{{route('products.index', ['sort' => 'low_high'])}}">Price
-                                        ASC</a>
-                                    <a class="dropdown-item" href="{{route('products.index', ['sort' => 'high_low'])}}">Price
-                                        DESC</a>
-                                    <a class="dropdown-item"
-                                       href="{{route('products.index', ['sort' => 'alphabetically_asc'])}}">Name ASC</a>
-                                    <a class="dropdown-item"
-                                       href="{{route('products.index', ['sort' => 'alphabetically_desc'])}}">Name
-                                        DESC</a>
+            // $( "#test-api" ).on( "click", function() {
+
+            $.ajax({
+                url: 'http://api.coinlayer.com/api/' + endpoint + '?access_key=' + access_key,
+                dataType: 'jsonp',
+                success: function (json) {
+
+                    $(".btc-in-usdt").append(json.rates.BTC);
+                    $(".dodge-in-usdt").append(json.rates.DOGE);
+                    $(".eth-to-usdt").append(json.rates.ETH);
+                    $(".rev-to-usdt").append(json.rates.REV);
+
+
+                    // exchange rata data is stored in json.rates
+                    // alert(json.rates.XRP);
+                    //
+                    // // target currency is stored in json.target
+                    // alert(json.target);
+                    //
+                    // // timestamp can be accessed in json.timestamp
+                    // alert(json.timestamp);
+                }
+            });
+            // });
+
+            // get the most recent exchange rates via the "live" endpoint:
+
+        });
+    </script>
+
+    <div class="container" id="myGroup">
+        <div class="collapse show" id="main-tab" data-parent="#myGroup">
+            <div class="card-fiat fiat">
+                <div class="card-body">
+                    <div class="row-fiat">
+                        <div class="col-lg-3 col-md-12 col-sm-12 border-col1">
+                            <div class="d-flex justify-content-between">
+                                <div class="currency">Bitcoin</div>
+                                <div class="b"><img height="40"
+                                                    src="https://bitexlive.com/assets/home/images/logo/30092019_024541_logo.png">
                                 </div>
                             </div>
+                            <div class="usdt btc-in-usdt"> USDT</div>
                         </div>
-
-                        <div class="row">
-                            @foreach($products as $product)
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <div class="card mt-2">
-                                        <img src="{{ asset('storage/'. $product->image) }}" alt="">
-                                        <div class="card-body">
-                                            <a href="{{ route('product.show', $product->id) }}"><p
-                                                        class="product-title">{{ $product->name }}</p></a>
-                                            <p class="poduct-price text-center">{{ "Price: ".$product->price." lei" }}</p>
-                                            <div id="outer">
-                                                {{--                                                <div class="inner pb-2 text-center">--}}
-                                                {{--                                                    <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary">View</a>--}}
-                                                {{--                                                </div>--}}
-                                                <div id="result" class="inner text-center">
-                                                    <a onclick="postProducts({{ $product->id }})"
-                                                       class="btn btn-success btn-add-to-cart" data-dismiss="alert">Add
-                                                        to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 border-col2">
+                            <div class="d-flex justify-content-between">
+                                <div class="currency">DogeCoin</div>
+                                <div class="b"><img height="40"
+                                                    src="https://bitexlive.com/assets/home/images/logo/30092019_024558_logo.png">
                                 </div>
-                            @endforeach
+                            </div>
+                            <div class="usdt dodge-in-usdt"> USDT</div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 border-col3">
+                            <div class="d-flex justify-content-between">
+                                <div class="currency">Ethereum</div>
+                                <div class="b"><img height="40"
+                                                    src="https://bitexlive.com/assets/home/images/logo/25092019_141352_logo.png">
+                                </div>
+                            </div>
+                            <div class="usdt eth-to-usdt"> USDT</div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 border-col4">
+                            <div class="d-flex justify-content-between">
+                                <div class="currency">Revain</div>
+                                <div class="b"><img height="40"
+                                                    src="https://bitexlive.com/assets/home/images/logo/revain.png">
+                                </div>
+                            </div>
+                            <div class="usdt rev-to-usdt"> USDT</div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    {{--    <section id="shiping">--}}
+    {{--        <div class="container">--}}
+    {{--            <div class="categories-row row">--}}
+    {{--                @foreach($products->unique('category') as $product)--}}
+    {{--                    <div class="col-md-3">--}}
+    {{--                        <div class="card card-header-items shipping-box">--}}
+    {{--                            <div class="box-title">--}}
+    {{--                                <a href="#">--}}
+    {{--                                    <h3 class="title-card-homepage" >{{ $product->category }}</h3>--}}
+    {{--                                </a>--}}
+    {{--                                <p>Vivamus feugiat, odio in aliquam venenatis, augue ante laoreet eros, eu mattis lacus--}}
+    {{--                                    lectus vitae velit. Curabitur tempus at risus sit amet iaculis. Vestibulum et dictum--}}
+    {{--                                    massa, sit amet tristique sem. </p>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                @endforeach--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </section>--}}
+
+    <div class="title text-center"><span class="bold">Secured Assets with</span><span class="regular"> Crypterio</span>
+    </div>
+    <div class="subtitle text-center">Your Asset is Secured with Crypterio</div>
+
+    <div class="container" id="myGroup">
+        <div class="collapse show" id="main-tab" data-parent="#myGroup">
+            {{--            <div class="card card-my-account">--}}
+            {{--                <div class="card-body my-acc">--}}
+
+
+            {{--                    <div class="products-container">--}}
+            {{--                        <div class="filter_products d-flex ml-5 mb-5" style="align-items: center;">--}}
+            {{--                            <div style="font-size: 18px; font-weight: bold;" class="mr-2">Filters:</div>--}}
+            {{--                            <div class="dropdown">--}}
+            {{--                                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"--}}
+            {{--                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"--}}
+            {{--                                        style="padding: 0.375rem 1.75rem;">Sort by--}}
+            {{--                                </button>--}}
+            {{--                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--}}
+            {{--                                    <a class="dropdown-item" href="{{route('products.index', ['sort' => 'low_high'])}}">Price--}}
+            {{--                                        ASC</a>--}}
+            {{--                                    <a class="dropdown-item" href="{{route('products.index', ['sort' => 'high_low'])}}">Price--}}
+            {{--                                        DESC</a>--}}
+            {{--                                    <a class="dropdown-item"--}}
+            {{--                                       href="{{route('products.index', ['sort' => 'alphabetically_asc'])}}">Name ASC</a>--}}
+            {{--                                    <a class="dropdown-item"--}}
+            {{--                                       href="{{route('products.index', ['sort' => 'alphabetically_desc'])}}">Name--}}
+            {{--                                        DESC</a>--}}
+            {{--                                </div>--}}
+            {{--                            </div>--}}
+            {{--                        </div>--}}
+
+            <div class="four-cards">
+                <div class="two-cards">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <img class="operator" src="https://bitexlive.com/assets/home/newtheme/img/operator.svg"
+                                     alt="">
+                                <div class="content-card">
+                                    <div class="title-card medium">24/7 Support</div>
+                                    <div class="subtitle-card">Got a problem? Just get in touch. Our support team is
+                                        available 24/7.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <img class="insurance"
+                                     src="https://bitexlive.com/assets/home/newtheme/img/insurance.svg" alt="">
+                                <div class="content-card">
+                                    <div class="title-card medium">Security First</div>
+                                    <div class="subtitle-card">All data from website is transmitted using encrypted
+                                        Transport Layer Security (TLS) connections (i.e., HTTPS)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two-cards">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <img class="padlock" src="https://bitexlive.com/assets/home/newtheme/img/padlock.svg"
+                                     alt="">
+                                <div class="content-card">
+                                    <div class="title-card medium">Secure Storage</div>
+                                    <div class="subtitle-card">99% of our users' funds are kept in a cold storage with
+                                        multi-signature technologies
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <img class="pincode" src="https://bitexlive.com/assets/home/newtheme/img/pincode.svg"
+                                     alt="">
+                                <div class="content-card">
+                                    <div class="title-card medium">2FA Verification</div>
+                                    <div class="subtitle-card">Two-Factor Authentication (2FA) is required for actions
+                                        such as withdrawals or changes in account settings
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{--                        <div class="row">--}}
+            {{--                            @foreach($products as $product)--}}
+            {{--                                <div class="col-lg-3 col-md-4 col-sm-6">--}}
+            {{--                                    <div class="card mt-2">--}}
+            {{--                                        <img src="{{ asset('storage/'. $product->image) }}" alt="">--}}
+            {{--                                        <div class="card-body">--}}
+            {{--                                            <a href="{{ route('product.show', $product->id) }}"><p--}}
+            {{--                                                        class="product-title">{{ $product->name }}</p></a>--}}
+            {{--                                            <p class="poduct-price text-center">{{ "Price: ".$product->price." lei" }}</p>--}}
+            {{--                                            <div id="outer">--}}
+            {{--                                                --}}{{--                                                <div class="inner pb-2 text-center">--}}
+            {{--                                                --}}{{--                                                    <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary">View</a>--}}
+            {{--                                                --}}{{--                                                </div>--}}
+            {{--                                                <div id="result" class="inner text-center">--}}
+            {{--                                                    <a onclick="postProducts({{ $product->id }})"--}}
+            {{--                                                       class="btn btn-success btn-add-to-cart" data-dismiss="alert">Add--}}
+            {{--                                                        to cart</a>--}}
+            {{--                                                </div>--}}
+            {{--                                            </div>--}}
+            {{--                                        </div>--}}
+            {{--                                    </div>--}}
+            {{--                                </div>--}}
+            {{--                            @endforeach--}}
+            {{--                        </div>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
+            {{--        </div>--}}
+            {{--    </div>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
         </div>
     </div>
 @endsection

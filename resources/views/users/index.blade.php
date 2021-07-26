@@ -1,9 +1,12 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class="container">
+    <div class="users-container container">
+        <div class="cont-title">
+            <p class="user-list-c-title">User List</p>
+        </div>
         <div class="row justify-content-center mb-5">
-            @foreach($users as $user)
+             @foreach($users as $user)
                 <div class="card card_users">
                     <div class="card-header">Details for {{ $user->name }}</div>
 

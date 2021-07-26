@@ -4,8 +4,11 @@
     <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <script>
+
         function postProducts(id) {
             $.ajax({
                 type:'POST',
@@ -14,12 +17,15 @@
                     _token: '{{ csrf_token() }}',
                 },
                 success:function() {
-                    alert('Product added');
+                    Swal.fire(
+                        'Success!',
+                        'Product successfully added to cart!',
+                        'success'
+                    )
                 }
             });
         }
     </script>
-
     <div class="myaccount container" id="myGroup">
         <div class="collapse show " id="main-tab" data-parent="#myGroup">
             <div class="card card-my-account">
