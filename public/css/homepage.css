@@ -1,3 +1,61 @@
+.blob {
+
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(119, 252, 124, 0.82);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+
+i.icon-chat-toggle.fas.fa-comment.fa-2x {
+    margin-top: 13px;
+
+}
+.fab:hover, .fab:focus {
+    color: #c6ffe9;
+    text-decoration: underline;
+}
+.fab {
+    position: absolute;
+    position: fixed;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    text-align: center;
+    color: #f0f0f0;
+    margin: 25px auto 0;
+    box-shadow: 0 0 4px rgb(0 0 0 / 14%), 0 4px 8px rgb(0 0 0 / 28%);
+    cursor: pointer;
+    z-index: 998;
+    overflow: hidden;
+    background: #07b69c;
+    left: 176em;
+    top: 46em;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        border-radius: 0!important;
+    }
+}
+.navbar {
+     margin-bottom: 0 !important;
+}
 .users-container.container {
     margin-top: 5em;
 }
@@ -278,7 +336,7 @@ span.item-name {
     padding: 0 !important;
 }
 .cart {
-    margin-top: 8px;
+    margin-top: 14px;
 }
 .cart {
     position: relative;

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginSecurityController;
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PermissionController;
 use Illuminate\Support\Facades\Route;
@@ -75,6 +76,10 @@ Route::get('/reduce/{id}', [ProductController::class, 'getReduceByOne'])->name('
 Route::get('/delete/{id}', [ProductController::class, 'removeItem'])->name('shop.removeItem');
 Route::get('change-password', [ChangePasswordController::class, 'index']);
 Route::post('change-password', [ChangePasswordController::class, 'store'])->name('change.password');
+Route::get('/load-latest-messages', [MessagesController::class, 'getLoadLatestMessages']);
+Route::post('/send', [MessagesController::class, 'postSendMessage']);
+Route::get('/fetch-old-messages', [MessagesController::class, 'getOldMessages']);
+
 
 
 Route::get('/statistics', 'OrderController@chart')->name('shop.statistics');

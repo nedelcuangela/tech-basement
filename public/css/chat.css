@@ -1,0 +1,104 @@
+.input-group .form-control {
+    width: 95% !important;
+}
+
+.panel-default>.panel-heading {
+    color: #3af8b8;
+    background-color: #181340;
+    border-color: #3af8b8;
+}
+
+.panel-default {
+    border-color: #3af8b8;
+}
+
+.base_sent p {
+    background: #3af8b8;
+}
+time {
+    color: white;
+}
+
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #18133f;
+    border-top: 1px solid #3af8b8;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.panel-body.chat-area {
+    background-color: #100d31;
+}
+
+p {
+    font-size: 13px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.base_receive p {
+    background: #4bdbe6;
+}
+
+
+time {
+    font-size: 11px;
+    font-style: italic;
+}
+
+#login-box {
+    margin-top: 20px
+}
+
+#chat_box {
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    width: 27%;
+}
+
+.close-chat {
+    margin-top: -17px;
+    cursor: pointer;
+}
+
+.chat_box {
+    margin-right: 25px;
+    width: 310px;
+}
+
+.chat-area {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+#users li {
+    margin-bottom: 5px;
+}
+
+#chat-overlay {
+    z-index: 99999999;
+    position: fixed;
+    right: 0%;
+    bottom: 0%;
+}
+
+.glyphicon-ok {
+    color: #42b7dd;
+}
+
+.loader {
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}

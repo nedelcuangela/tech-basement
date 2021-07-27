@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,8 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = \App\Models\Product::all();
+        $users = User::where('id', '!=', Auth::user()->id)->get();
+        $products = Product::all();
 
-        return view('/home',  compact('products' ));
+        return view('/home',  compact('products', 'users' ));
     }
 }
