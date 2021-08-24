@@ -3,7 +3,7 @@
         <div class="col-xs-12 col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat with <i class="chat-user"></i> </h3>
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Intra in conversatie cu <i class="chat-user"></i> </h3>
                     <span class="glyphicon glyphicon-remove pull-right close-chat"></span>
                 </div>
                 <div class="panel-body chat-area">
@@ -14,7 +14,7 @@
                         <span class="input-group-btn">
                                     <button class="btn btn-primary btn-sm btn-chat" type="button" data-to-user="" disabled>
                                         <i class="glyphicon glyphicon-send"></i>
-                                        Send</button>
+                                        Trimite</button>
                                 </span>
                     </div>
                 </div>

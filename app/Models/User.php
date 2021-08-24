@@ -27,11 +27,19 @@ class User extends Authenticatable
             abort(401, 'This action is not authorized');
     }
 
+    /**
+     * @param $roles
+     * @return bool
+     */
     public function hasAnyRole($roles)
     {
         return null !== $this->roles()->whereIn('name', $roles)->first();
     }
 
+    /**
+     * @param $role
+     * @return bool
+     */
     public function hasRole($role)
     {
         return null !== $this->roles()->where('slug', $role)->first();

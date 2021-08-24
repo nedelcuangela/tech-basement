@@ -46,9 +46,7 @@
                                     @endforeach
                                 </select>
                             </div>
-
                             @csrf
-
                             <button type="submit" class="btn btn-primary"> Save User</button>
                         </form>
                     </div>

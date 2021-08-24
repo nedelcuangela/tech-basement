@@ -30,6 +30,10 @@ class RoleController extends Controller
         return view('products.create');
     }
 
+    /**
+     * @param Role $role
+     * @return Application|RedirectResponse|Redirector
+     */
     public function destroy (Role $role) {
         $role->delete();
 
@@ -65,7 +69,9 @@ class RoleController extends Controller
         return view('roles.show', compact('role'));
     }
 
-
+    /**
+     * @return Application|Factory|View
+     */
     public function index()
     {
         $roles = \App\Models\Role::all();

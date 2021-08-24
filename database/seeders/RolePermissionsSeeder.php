@@ -18,8 +18,7 @@ class RolePermissionsSeeder extends Seeder
             [
                 'role_slug' => 'admin',
                 'permission_slug' => 'full_access'
-            ],
-            [
+            ], [
                 'role_slug' => 'client',
                 'permission_slug' => 'read'
             ],

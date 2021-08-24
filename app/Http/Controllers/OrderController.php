@@ -9,27 +9,27 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
-use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Validator;
-use Illuminate\View\View;
-use function Sodium\compare;
 
 class OrderController extends Controller
 {
+    /**
+     * OrderController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
     /**
-     * @return Application|Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function chart()
     {
@@ -45,7 +45,7 @@ class OrderController extends Controller
     }
 
     /**
-     * @return Application|Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function manageOrder()
     {
@@ -79,7 +79,7 @@ class OrderController extends Controller
     }
 
     /**
-     * @return Application|Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function placeOrder() {
 
@@ -89,7 +89,7 @@ class OrderController extends Controller
     /**
      * @param Request $request
      * @param Order $order
-     * @return Application|Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function checkout(Request $request, Order $order)
     {
@@ -116,7 +116,7 @@ class OrderController extends Controller
     }
 
     /**
-     * @return Application|Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function orderHistory() {
         $orders = Order::where('id_client', '=', Auth::user()->id)->latest()->get();
@@ -125,7 +125,7 @@ class OrderController extends Controller
     }
 
     /**
-     * @return Application|Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function index() {
         $orders = Order::all();
@@ -142,25 +142,13 @@ class OrderController extends Controller
 
     /**
      * @param Order $order
-     * @return Application|Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function showOrder(Order $order)
     {
         $products = Product::findMany(array_keys(json_decode($order->items, true)));
 
         return view('shop.orders', compact('products', 'order'));
-    }
-
-    /**
-     * @return array
-     */
-    private function validateRequest() {
-
-        return request()->validate([
-            'adress' => ['required', 'min:3', 'max:200'],
-            'phone' => ['required', 'min:10', 'max:10'],
-            'zipcode' => ['required', 'min:2', 'max:10'],
-        ]);
     }
 
     /**

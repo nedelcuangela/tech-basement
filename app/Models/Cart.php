@@ -10,6 +10,10 @@ class Cart extends Model
     public $totalQty = 0;
     public $totalPrice = 0;
 
+    /**
+     * Cart constructor.
+     * @param $oldCart
+     */
     public function __construct($oldCart)
     {
         if ($oldCart && is_object($oldCart) && $oldCart->products != null)
@@ -25,6 +29,10 @@ class Cart extends Model
         }
     }
 
+    /**
+     * @param $product
+     * @param $id
+     */
     public function add($product, $id)
     {
         $storedItem = ['qty' => 0, 'price' => $product->price, 'product' => $product];
@@ -41,6 +49,9 @@ class Cart extends Model
         $this->totalPrice += (int) $product->price;
     }
 
+    /**
+     * @param $id
+     */
     public function reduceByOne($id)
     {
         $this->products[$id]['qty']--;
@@ -54,6 +65,9 @@ class Cart extends Model
         }
     }
 
+    /**
+     * @param $id
+     */
     public function removeItem($id) {
         $this->totalQty -= $this->products[$id]['qty'];
         $this->totalPrice -= $this->products[$id]['price'];

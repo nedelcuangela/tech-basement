@@ -3,22 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Models\LoginSecurity;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException;
+use PragmaRX\Google2FA\Exceptions\InvalidCharactersException;
+use PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException;
 use PragmaRX\Google2FAQRCode\Google2FA;
 
 class LoginSecurityController extends Controller
 {
+    /**
+     * LoginSecurityController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
     /**
-     * Show 2FA Setting form
+     * @param Request $request
+     * @return Application|Factory|View
      */
-    public function show2faForm(Request $request){
+    public function show2faForm(Request $request)
+    {
         $user = Auth::user();
         $google2fa_url = "";
         $secret_key = "";
@@ -43,14 +56,18 @@ class LoginSecurityController extends Controller
     }
 
     /**
-     * Generate 2FA secret key
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
+     * @throws IncompatibleWithGoogleAuthenticatorException
+     * @throws InvalidCharactersException
+     * @throws SecretKeyTooShortException
      */
-    public function generate2faSecret(Request $request){
+    public function generate2faSecret(Request $request)
+    {
         $user = Auth::user();
-        // Initialise the 2FA class
+
         $google2fa = (new Google2FA());
 
-        // Add the secret key to the registration data
         $login_security = LoginSecurity::firstOrNew(array('user_id' => $user->id));
         $login_security->user_id = $user->id;
         $login_security->google2fa_enable = 0;
@@ -61,7 +78,11 @@ class LoginSecurityController extends Controller
     }
 
     /**
-     * Enable 2FA
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
+     * @throws IncompatibleWithGoogleAuthenticatorException
+     * @throws InvalidCharactersException
+     * @throws SecretKeyTooShortException
      */
     public function enable2fa(Request $request){
         $user = Auth::user();
@@ -80,11 +101,12 @@ class LoginSecurityController extends Controller
     }
 
     /**
-     * Disable 2FA
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function disable2fa(Request $request){
         if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
-            // The passwords matches
+
             return redirect()->back()->with("error","Your password does not matches with your account password. Please try again.");
         }
 

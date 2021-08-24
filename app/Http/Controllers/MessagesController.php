@@ -4,20 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Lib\PusherFactory;
 use App\Models\Message;
+use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Pusher\ApiErrorException;
+use Pusher\PusherException;
 
 class MessagesController extends Controller
 {
+    /**
+     * MessagesController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
+
     /**
-     * getLoadLatestMessages
-     *
-     *
      * @param Request $request
+     * @return JsonResponse|void
      */
     public function getLoadLatestMessages(Request $request)
     {
@@ -36,6 +42,13 @@ class MessagesController extends Controller
         return response()->json(['state' => 1, 'messages' => $return]);
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse|void
+     * @throws GuzzleException
+     * @throws ApiErrorException
+     * @throws PusherException
+     */
     public function postSendMessage(Request $request)
     {
         if(!$request->to_user || !$request->message) {
@@ -46,7 +59,7 @@ class MessagesController extends Controller
         $message->to_user = $request->to_user;
         $message->content = $request->message;
         $message->save();
-        // prepare some data to send with the response
+
         $message->dateTimeStr = date("Y-m-dTH:i", strtotime($message->created_at->toDateTimeString()));
         $message->dateHumanReadable = $message->created_at->diffForHumans();
         $message->fromUserName = $message->fromUser('name');
@@ -57,6 +70,13 @@ class MessagesController extends Controller
         return response()->json(['state' => 1, 'data' => $message]);
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse|void
+     * @throws GuzzleException
+     * @throws ApiErrorException
+     * @throws PusherException
+     */
     public function getOldMessages(Request $request)
     {
         if(!$request->old_message_id || !$request->to_user)

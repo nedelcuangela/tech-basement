@@ -9,6 +9,9 @@ class Category extends Model
 {
     protected $guarded = [];
 
+    /**
+     * @return HasMany
+     */
     public function product(): HasMany
     {
         return $this->hasMany(Product::class);

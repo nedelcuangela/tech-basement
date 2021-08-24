@@ -13,10 +13,6 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;
 
 
-/**
- * Class ProductController
- * @package App\Http\Controllers
- */
 class ProductController extends Controller
 {
     /**

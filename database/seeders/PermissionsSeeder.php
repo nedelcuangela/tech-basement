@@ -19,8 +19,7 @@ class PermissionsSeeder extends Seeder
             [
                 'name' => 'Full control',
                 'slug' => 'full_access',
-            ],
-            [
+            ], [
                 'name' => 'Read Files',
                 'slug' => 'read',
             ],
