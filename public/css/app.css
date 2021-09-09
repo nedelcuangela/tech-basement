@@ -6,11 +6,6 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-
-a.nav-link:hover {
-  color: #3af8b8 !important;
-}
-
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -4289,10 +4284,10 @@ input[type=button].btn-block {
 }
 .navbar-light .navbar-toggler {
   color: rgba(0, 0, 0, 0.5);
-  border-color: rgb(7 254 185);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 .navbar-light .navbar-toggler-icon {
-  background-image: url("https://bitexlive.com/assets/home/newtheme/img/menu.svg");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 .navbar-light .navbar-text {
   color: rgba(0, 0, 0, 0.5);
@@ -7746,10 +7741,10 @@ button.bg-dark:focus {
   padding: 1.5rem !important;
 }
 
-/*.pt-4,*/
-/*.py-4 {*/
-/*  padding-top: 1.5rem !important;*/
-/*}*/
+.pt-4,
+.py-4 {
+  padding-top: 1.5rem !important;
+}
 
 .pr-4,
 .px-4 {
