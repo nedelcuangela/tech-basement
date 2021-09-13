@@ -1,6 +1,7 @@
-@extends('layouts.front')@section('title', 'Orders Placed')
+@extends('layouts.front')@section('title', 'Add new Product')
 @section('content')
 
+    <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
     <div style="margin-bottom: 2em" class="title-manage">
         <h1 style="text-align: center">Manage pending orders</h1>
     </div>
