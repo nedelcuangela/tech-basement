@@ -1,4 +1,4 @@
-@extends('layouts.app')@section('title', 'Add new User')
+@extends('layouts.front')@section('title', 'Add new User')
 @section('content')
 
     <div class="container">

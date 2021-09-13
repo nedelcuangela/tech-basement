@@ -1,4 +1,4 @@
-@extends('layouts.app')@section('title', 'Edit role: '.$role->name)
+@extends('layouts.front')@section('title', 'Edit role: '.$role->name)
 
 @section('content')
 

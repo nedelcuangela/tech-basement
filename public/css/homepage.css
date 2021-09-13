@@ -2,6 +2,13 @@
 .title.medium, .notice {
     color: white;
 }
+body {
+    position: relative;
+    min-height: 100%;
+}
+html {
+    height: 100%;
+}
 .footer2 {
     padding: 25px 0;
     border: solid 1px #201b50;
@@ -740,7 +747,7 @@ div#navbarSupportedContent > ul > li {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;
+    height: 0;
 }
 img.shopping-cart-icon {
     margin-top: 6px;

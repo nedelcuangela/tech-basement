@@ -1,4 +1,4 @@
-@extends('layouts.app')@section('title', 'Site Roles')
+@extends('layouts.front')@section('title', 'Site Roles')
 
 @section('content')
 

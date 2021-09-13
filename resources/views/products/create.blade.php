@@ -1,4 +1,4 @@
-@extends('layouts.app')@section('title', 'Add new Product')
+@extends('layouts.front')@section('title', 'Add new Product')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

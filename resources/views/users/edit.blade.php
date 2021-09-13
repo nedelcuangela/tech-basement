@@ -1,4 +1,4 @@
-@extends('layouts.app')@section('title', 'Edit Details for '. $user->name)
+@extends('layouts.front')@section('title', 'Edit Details for '. $user->name)
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

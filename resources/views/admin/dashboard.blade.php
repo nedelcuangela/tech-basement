@@ -1,4 +1,4 @@
-@extends('layouts.app')@section('title', 'Add new Product')
+@extends('layouts.front')@section('title', 'Add new Product')
 @section('content')
 
     <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">

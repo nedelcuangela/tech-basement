@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.front')
 
 @foreach($users as $user)
 @section('title', 'Details for '.$user->name)

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.front')
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
@@ -6,15 +6,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
-    <script src="{{ asset('js/chat.js') }}"></script>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="{{ asset('css/chat.css') }}" />
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script>
-        var base_url = '{{ url("/") }}';
-    </script>
     <section id="head">
         <div class="container">
             <div class="row">
@@ -128,8 +119,7 @@
             </div>
         </div>
     </div>
-    <div class="title text-center"><span class="bold">Bunurile Tale Sunt Securizate cu</span><span class="regular"> Crypterio</span>
-    </div>
+    <div class="title text-center"><span class="bold">Bunurile Tale Sunt Securizate cu</span><span class="regular"> Crypterio</span></div>
     <div class="subtitle text-center">Chiar daca Crypterio simuleaza un sistem real de blockchain, datele si activitatile tale sunt securizate.</div>
     <div class="container" id="myGroup">
         <div class="collapse show" id="main-tab" data-parent="#myGroup">
@@ -216,33 +206,10 @@
                 @section('script')
                 @stop
             </div>
-
             <div class="chat-box-overlay">
                 <div id="chat-overlay" class="row"></div>
-                <audio id="chat-alert-sound" style="display: none">
-                    <source src="{{ asset('sound/facebook_chat.mp3') }}" />
-                </audio>
                 @yield('script')
             </div>
         </div>
     </div>
-
-
-    <script>
-        $(document).ready(function () {
-            endpoint = 'live'
-            access_key = '5a38e853b2fad378555f8e382553756d';
-
-            $.ajax({
-                url: 'http://api.coinlayer.com/api/' + endpoint + '?access_key=' + access_key,
-                dataType: 'jsonp',
-                success: function (json) {
-                    $(".btc-in-usdt").append(json.rates.BTC);
-                    $(".dodge-in-usdt").append(json.rates.DOGE);
-                    $(".eth-to-usdt").append(json.rates.ETH);
-                    $(".rev-to-usdt").append(json.rates.REV);
-                }
-            });
-        });
-    </script>
 @endsection

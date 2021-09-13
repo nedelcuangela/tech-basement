@@ -1,4 +1,4 @@
-@extends('layouts.app')@section('title', 'Edit permission: '.$permission->name)
+@extends('layouts.front')@section('title', 'Edit permission: '.$permission->name)
 
 @section('content')
 

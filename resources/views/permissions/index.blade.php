@@ -1,4 +1,4 @@
-@extends('layouts.app')@section('title', 'Site Permissions')
+@extends('layouts.front')@section('title', 'Site Permissions')
 
 @section('content')
 

@@ -1,4 +1,4 @@
-@extends('layouts.app')@section('title', 'Orders Placed')
+@extends('layouts.front')@section('title', 'Orders Placed')
 @section('content')
 
     <div style="margin-bottom: 2em" class="title-manage">

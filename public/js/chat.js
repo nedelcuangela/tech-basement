@@ -1,14 +1,10 @@
 $( document ).ready(function() {
-
-    console.log('hi, it works');
-
     $(function () {
         let pusher = new Pusher($("#pusher_app_key").val(), {
             cluster: $("#pusher_cluster").val(),
             encrypted: true
         });
         let channel = pusher.subscribe('chat');
-        // on click on any chat btn render the chat box
         $(".chat-toggle").on("click", function (e) {
             e.preventDefault();
             let ele = $(this);

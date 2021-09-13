@@ -1,4 +1,4 @@
-@extends('layouts.app')@section('title', $product->name)
+@extends('layouts.front')@section('title', $product->name)
 
 @section('content')
     <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
