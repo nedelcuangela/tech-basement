@@ -1,6 +1,6 @@
 @extends('layouts.front')@section('title', 'Modify'.$product->product)
 @section('content')
-    <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/homepage.scss') }}" rel="stylesheet">
 
     <div class="row">
         <div class="col-6 edit-title">

@@ -23,5 +23,10 @@
         base: @json(asset('/'))
     };
 </script>
+<script src="{{ asset('js/app.js')}}" ></script>
+@include('includes.scripts')
+{{--<script src="{{asset('js/front.js')}}" defer></script>--}}
+@stack('js')
+</body>
 </body>
 </html>

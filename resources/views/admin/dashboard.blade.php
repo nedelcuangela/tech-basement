@@ -1,7 +1,7 @@
 @extends('layouts.front')@section('title', 'Add new Product')
 @section('content')
 
-    <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/homepage.scss') }}" rel="stylesheet">
 
 {{--    <div style="margin: 0 auto" class="col-8 card-deck">--}}
 {{--        <div class="card">--}}

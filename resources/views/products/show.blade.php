@@ -1,7 +1,7 @@
 @extends('layouts.front')@section('title', $product->name)
 
 @section('content')
-    <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/homepage.scss') }}" rel="stylesheet">
 
     <script>
         const activeImage = document.querySelector(".product-image .active");
