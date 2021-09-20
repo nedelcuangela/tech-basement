@@ -15,6 +15,8 @@ mix.js('resources/js/app.js', 'public/js')
     .vue()
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/homepage.scss', 'public/css')
+    .js('resources/js/chat.js', 'public/js')
+
 ;
 
 // mix.js('resources/js/app.js', 'public/js/compiled')
