@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
+{{--    <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('css/chat.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
